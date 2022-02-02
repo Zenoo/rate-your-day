@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -13,11 +13,15 @@ const SidebarNav = ({ pages, onClose }) => {
     setActiveLink(window && window.location ? window.location.pathname : '');
   }, []);
 
+  const handleClose = useCallback(() => {
+    onClose();
+  }, [onClose]);
+
   return (
     <Box paddingBottom={2}>
       <Box
         justifyContent={'flex-end'}
-        onClick={() => onClose()}
+        onClick={handleClose}
         display={{ xs: 'flex', md: 'none' }}
       >
         <CloseIcon fontSize="small" />

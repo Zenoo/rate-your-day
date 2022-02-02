@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -15,6 +15,19 @@ const Details = () => {
   const [color, setColor] = useState('white');
   const [quantity, setQuantity] = useState(1);
   const quantityLimit = 4;
+
+  const changeSize = useCallback((item) => {
+    setSize(item);
+  }, []);
+  const changeColor = useCallback((item) => {
+    setColor(item);
+  }, []);
+  const decrementQuantity = useCallback(() => {
+    setQuantity((prev) => prev - 1 >= 1 ? prev - 1 : 1);
+  }, []);
+  const incrementQuantity = useCallback(() => {
+    setQuantity((prev) => prev + 1 <= quantityLimit ? prev + 1 : quantityLimit);
+  }, [quantityLimit]);
 
   return (
     <Box>
@@ -86,7 +99,7 @@ const Details = () => {
             {['S', 'M', 'L', 'XL'].map((item) => (
               <Box
                 key={item}
-                onClick={() => setSize(item)}
+                onClick={changeSize}
                 sx={{
                   borderRadius: 1,
                   padding: 1,
@@ -114,7 +127,7 @@ const Details = () => {
             {['black', 'gray', 'white'].map((item) => (
               <Box
                 key={item}
-                onClick={() => setColor(item)}
+                onClick={changeColor(item)}
                 sx={{
                   borderRadius: '100%',
                   padding: 0.5,
@@ -147,7 +160,7 @@ const Details = () => {
           </Typography>
           <Stack direction={'row'} spacing={2} marginTop={0.5}>
             <Box
-              onClick={() => setQuantity(quantity - 1 >= 1 ? quantity - 1 : 1)}
+              onClick={decrementQuantity}
               sx={{
                 borderRadius: 1,
                 paddingY: 1,
@@ -163,11 +176,7 @@ const Details = () => {
               </Typography>
             </Box>
             <Box
-              onClick={() =>
-                setQuantity(
-                  quantity + 1 <= quantityLimit ? quantity + 1 : quantityLimit,
-                )
-              }
+              onClick={incrementQuantity}
               sx={{
                 borderRadius: 1,
                 paddingY: 1,

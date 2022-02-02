@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { useTheme } from '@mui/material/styles';
@@ -37,13 +37,13 @@ const PromoNumbers = () => {
   });
 
   const [viewPortEntered, setViewPortEntered] = useState(false);
-  const setViewPortVisibility = (isVisible) => {
+  const setViewPortVisibility = useCallback((isVisible) => {
     if (viewPortEntered) {
       return;
     }
 
     setViewPortEntered(isVisible);
-  };
+  }, [viewPortEntered]);
 
   return (
     <Box>
@@ -74,9 +74,7 @@ const PromoNumbers = () => {
                   <Typography variant="h3" align={'center'} gutterBottom>
                     <Box fontWeight={600}>
                       <VisibilitySensor
-                        onChange={(isVisible) =>
-                          setViewPortVisibility(isVisible)
-                        }
+                        onChange={setViewPortVisibility}
                         delayedCall
                       >
                         <CountUp

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { alpha, useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
@@ -9,22 +9,6 @@ import AppBar from '@mui/material/AppBar';
 import Container from 'components/Container';
 import { Topbar, Sidebar, Footer } from './components';
 
-const ChildMock = () => {
-  const theme = useTheme();
-  return (
-    <Box
-      width={1}
-      height={1}
-      minHeight={{ xs: 400, md: 800 }}
-      borderRadius={2}
-      border={`2px solid ${theme.palette.divider}`}
-      sx={{
-        borderStyle: 'dashed',
-      }}
-    />
-  );
-};
-
 const WithThreeColumns = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
@@ -33,13 +17,13 @@ const WithThreeColumns = () => {
 
   const [openSidebar, setOpenSidebar] = useState(false);
 
-  const handleSidebarOpen = () => {
+  const handleSidebarOpen = useCallback(() => {
     setOpenSidebar(true);
-  };
+  }, []);
 
-  const handleSidebarClose = () => {
+  const handleSidebarClose = useCallback(() => {
     setOpenSidebar(false);
-  };
+  }, []);
 
   const open = isMd ? false : openSidebar;
 
@@ -75,10 +59,28 @@ const WithThreeColumns = () => {
               <Box p={4}>
                 <Grid container spacing={4}>
                   <Grid item xs={12} md={6}>
-                    <ChildMock />
+                    <Box
+                      width={1}
+                      height={1}
+                      minHeight={{ xs: 400, md: 800 }}
+                      borderRadius={2}
+                      border={`2px solid ${theme.palette.divider}`}
+                      sx={{
+                        borderStyle: 'dashed',
+                      }}
+                    />
                   </Grid>
                   <Grid item xs={12} md={6}>
-                    <ChildMock />
+                    <Box
+                      width={1}
+                      height={1}
+                      minHeight={{ xs: 400, md: 800 }}
+                      borderRadius={2}
+                      border={`2px solid ${theme.palette.divider}`}
+                      sx={{
+                        borderStyle: 'dashed',
+                      }}
+                    />
                   </Grid>
                 </Grid>
               </Box>

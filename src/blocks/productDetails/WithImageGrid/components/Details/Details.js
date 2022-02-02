@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
@@ -62,6 +62,13 @@ const Details = () => {
   const [size, setSize] = useState('M');
   const [color, setColor] = useState('white');
 
+  const changeColor = useCallback((item) => () => {
+    setColor(item);
+  }, []);
+  const changeSize = useCallback((item) => () => {
+    setSize(item);
+  }, []);
+
   return (
     <Box>
       <Box display={'flex'} justifyContent={'space-between'}>
@@ -106,7 +113,7 @@ const Details = () => {
           {['black', 'gray', 'white'].map((item) => (
             <Box
               key={item}
-              onClick={() => setColor(item)}
+              onClick={changeColor(item)}
               sx={{
                 borderRadius: '100%',
                 padding: '2px',
@@ -136,7 +143,7 @@ const Details = () => {
           {['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'].map((item) => (
             <Box
               key={item}
-              onClick={() => setSize(item)}
+              onClick={changeSize(item)}
               sx={{
                 width: 1,
                 borderRadius: 2,

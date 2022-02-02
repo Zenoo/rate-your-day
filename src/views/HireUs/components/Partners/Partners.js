@@ -68,7 +68,7 @@ const mock = [
 
 const Partners = () => {
   const theme = useTheme();
-  const { mode } = theme.palette;
+  const { palette: { mode } } = theme;
   const isXs = useMediaQuery(theme.breakpoints.up('xs'), {
     defaultMatches: true,
   });

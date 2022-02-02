@@ -1,116 +1,97 @@
+// Building blocks Hero components
+import { FullScreenHeroWithImageSlider, FullScreenHeroWithLogoGrid, FullScreenHeroWithPromoImagesAndTypedText, FullScreenHeroWithSubscriptionForm, HeroForEcommerceApp, HeroWithBackgroundVideo, HeroWithDashboardScreenshotAndCta, HeroWithFormAndBackgroundGradient, HeroWithIllustrationAndCta, HeroWithIllustrationAndSearchBar, HeroWithLogoGridAndDesktopScreenshot, HeroWithMobileAppScreenshot, HeroWithPrimaryBackgroundAndDesktopScreenshot, IndexView, SimpleHeroWithBottomVideo, SimpleHeroWithCta, SimpleHeroWithImageAndCtaButtons, SimpleHeroWithSearchBox } from 'blocks/heroes';
 import React from 'react';
 
-// Building blocks Hero components
-import {
-  IndexView as HeroIndexView,
-  FullScreenHeroWithImageSlider as FullScreenHeroWithImageSliderView,
-  FullScreenHeroWithPromoImagesAndTypedText as FullScreenHeroWithPromoImagesAndTypedTextView,
-  HeroWithFormAndBackgroundGradient as HeroWithFormAndBackgroundGradientView,
-  HeroForEcommerceApp as HeroForEcommerceAppView,
-  FullScreenHeroWithSubscriptionForm as FullScreenHeroWithSubscriptionFormView,
-  HeroWithIllustrationAndSearchBar as HeroWithIllustrationAndSearchBarView,
-  HeroWithMobileAppScreenshot as HeroWithMobileAppScreenshotView,
-  HeroWithDashboardScreenshotAndCta as HeroWithDashboardScreenshotAndCtaView,
-  SimpleHeroWithSearchBox as SimpleHeroWithSearchBoxView,
-  SimpleHeroWithCta as SimpleHeroWithCtaView,
-  HeroWithIllustrationAndCta as HeroWithIllustrationAndCtaView,
-  HeroWithLogoGridAndDesktopScreenshot as HeroWithLogoGridAndDesktopScreenshotView,
-  HeroWithBackgroundVideo as HeroWithBackgroundVideoView,
-  SimpleHeroWithBottomVideo as SimpleHeroWithBottomVideoView,
-  HeroWithPrimaryBackgroundAndDesktopScreenshot as HeroWithPrimaryBackgroundAndDesktopScreenshotView,
-  FullScreenHeroWithLogoGrid as FullScreenHeroWithLogoGridView,
-  SimpleHeroWithImageAndCtaButtons as SimpleHeroWithImageAndCtaButtonsView,
-} from 'blocks/heroes';
 
 const routes = [
   {
     path: '/blocks/heroes',
-    renderer: (params = {}) => <HeroIndexView {...params} />,
+    renderer: (params = {}) => <IndexView {...params} />,
   },
   {
     path: '/blocks/heroes/full-screen-hero-with-promo-images-and-typed-text',
     renderer: (params = {}) => (
-      <FullScreenHeroWithPromoImagesAndTypedTextView {...params} />
+      <FullScreenHeroWithPromoImagesAndTypedText {...params} />
     ),
   },
   {
     path: '/blocks/heroes/full-screen-hero-with-image-slider',
     renderer: (params = {}) => (
-      <FullScreenHeroWithImageSliderView {...params} />
+      <FullScreenHeroWithImageSlider {...params} />
     ),
   },
   {
     path: '/blocks/heroes/hero-with-form-and-background-gradient',
     renderer: (params = {}) => (
-      <HeroWithFormAndBackgroundGradientView {...params} />
+      <HeroWithFormAndBackgroundGradient {...params} />
     ),
   },
   {
     path: '/blocks/heroes/hero-for-ecommerce-app',
-    renderer: (params = {}) => <HeroForEcommerceAppView {...params} />,
+    renderer: (params = {}) => <HeroForEcommerceApp {...params} />,
   },
   {
     path: '/blocks/heroes/full-screen-hero-with-subscription-form',
     renderer: (params = {}) => (
-      <FullScreenHeroWithSubscriptionFormView {...params} />
+      <FullScreenHeroWithSubscriptionForm {...params} />
     ),
   },
   {
     path: '/blocks/heroes/hero-with-illustration-and-search-bar',
     renderer: (params = {}) => (
-      <HeroWithIllustrationAndSearchBarView {...params} />
+      <HeroWithIllustrationAndSearchBar {...params} />
     ),
   },
   {
     path: '/blocks/heroes/hero-with-mobile-app-screenshot',
-    renderer: (params = {}) => <HeroWithMobileAppScreenshotView {...params} />,
+    renderer: (params = {}) => <HeroWithMobileAppScreenshot {...params} />,
   },
   {
     path: '/blocks/heroes/hero-with-dashboard-screenshot-and-cta',
     renderer: (params = {}) => (
-      <HeroWithDashboardScreenshotAndCtaView {...params} />
+      <HeroWithDashboardScreenshotAndCta {...params} />
     ),
   },
   {
     path: '/blocks/heroes/simple-hero-with-search-box',
-    renderer: (params = {}) => <SimpleHeroWithSearchBoxView {...params} />,
+    renderer: (params = {}) => <SimpleHeroWithSearchBox {...params} />,
   },
   {
     path: '/blocks/heroes/simple-hero-with-cta',
-    renderer: (params = {}) => <SimpleHeroWithCtaView {...params} />,
+    renderer: (params = {}) => <SimpleHeroWithCta {...params} />,
   },
   {
     path: '/blocks/heroes/hero-with-illustration-and-cta',
-    renderer: (params = {}) => <HeroWithIllustrationAndCtaView {...params} />,
+    renderer: (params = {}) => <HeroWithIllustrationAndCta {...params} />,
   },
   {
     path: '/blocks/heroes/hero-with-logo-grid-and-desktop-screenshot',
     renderer: (params = {}) => (
-      <HeroWithLogoGridAndDesktopScreenshotView {...params} />
+      <HeroWithLogoGridAndDesktopScreenshot {...params} />
     ),
   },
   {
     path: '/blocks/heroes/hero-with-background-video',
-    renderer: (params = {}) => <HeroWithBackgroundVideoView {...params} />,
+    renderer: (params = {}) => <HeroWithBackgroundVideo {...params} />,
   },
   {
     path: '/blocks/heroes/simple-hero-with-bottom-video',
-    renderer: (params = {}) => <SimpleHeroWithBottomVideoView {...params} />,
+    renderer: (params = {}) => <SimpleHeroWithBottomVideo {...params} />,
   },
   {
     path: '/blocks/heroes/hero-with-primary-background-and-desktop-screenshot',
     renderer: (params = {}) => (
-      <HeroWithPrimaryBackgroundAndDesktopScreenshotView {...params} />
+      <HeroWithPrimaryBackgroundAndDesktopScreenshot {...params} />
     ),
   },
   {
     path: '/blocks/heroes/full-screen-hero-with-logo-grid',
-    renderer: (params = {}) => <FullScreenHeroWithLogoGridView {...params} />,
+    renderer: (params = {}) => <FullScreenHeroWithLogoGrid {...params} />,
   },
   {
     path: '/blocks/heroes/simple-hero-with-image-and-cta-buttons',
     renderer: (params = {}) => (
-      <SimpleHeroWithImageAndCtaButtonsView {...params} />
+      <SimpleHeroWithImageAndCtaButtons {...params} />
     ),
   },
 ];

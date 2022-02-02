@@ -30,7 +30,7 @@ const validationSchema = yup.object({
     .typeError('Not a valid expiration date. Example: MM/YY')
     .max(5, 'Not a valid expiration date. Example: MM/YY')
     .matches(
-      /([0-9]{2})\/([0-9]{2})/,
+      /(?:[0-9]{2})\/(?:[0-9]{2})/,
       'Not a valid expiration date. Example: MM/YY',
     )
     .required('Expiration date is required'),

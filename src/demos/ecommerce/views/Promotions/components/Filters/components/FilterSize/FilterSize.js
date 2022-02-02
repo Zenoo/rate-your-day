@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -12,15 +12,20 @@ const FilterSize = () => {
   const [size, setSize] = useState('M');
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const handleClick = (event) => {
+
+  const handleClick = useCallback((event) => {
     setAnchorEl(event.target);
     setOpen(true);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
     setOpen(false);
-  };
+  }, []);
+
+  const changeSize = useCallback((item) => () => {
+    setSize(item);
+  }, []);
 
   return (
     <Box display={'flex'} justifyContent={'center'}>
@@ -32,7 +37,7 @@ const FilterSize = () => {
         paddingY={1}
         paddingX={2}
         sx={{ cursor: 'pointer' }}
-        onClick={(e) => handleClick(e)}
+        onClick={handleClick}
       >
         <Typography>Size</Typography>
         <ExpandMoreIcon
@@ -77,7 +82,7 @@ const FilterSize = () => {
               {['S', 'M', 'L', 'XL'].map((item) => (
                 <Box
                   key={item}
-                  onClick={() => setSize(item)}
+                  onClick={changeSize(item)}
                   sx={{
                     borderRadius: 1,
                     padding: 1,

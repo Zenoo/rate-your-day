@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Lightbox from 'react-image-lightbox';
 import { useTheme } from '@mui/material/styles';
@@ -13,15 +13,15 @@ const Gallery = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
-  const openLightbox = (index) => {
+  const openLightbox = useCallback((index) => () => {
     setCurrentImage(index);
     setViewerIsOpen(true);
-  };
+  }, []);
 
-  const closeLightbox = () => {
+  const closeLightbox = useCallback(() => {
     setCurrentImage(0);
     setViewerIsOpen(false);
-  };
+  }, []);
 
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -54,6 +54,14 @@ const Gallery = () => {
     },
   ];
 
+  const lightboxPrev = useCallback(() => {
+    setCurrentImage((currentImage + photos.length - 1) % photos.length);
+  }, [currentImage, photos.length]);
+
+  const lightboxNext = useCallback(() => {
+    setCurrentImage((currentImage + 1) % photos.length);
+  }, [currentImage, photos.length]);
+
   return (
     <Box>
       <Box display={'flex'} justifyContent={'flex-end'} marginBottom={2}>
@@ -77,7 +85,7 @@ const Gallery = () => {
               />
             </svg>
           }
-          onClick={() => openLightbox(0)}
+          onClick={openLightbox(0)}
         >
           Open the gallery
         </Button>
@@ -97,7 +105,7 @@ const Gallery = () => {
                 src={item.src}
                 alt="..."
                 effect="blur"
-                onClick={() => openLightbox(i)}
+                onClick={openLightbox(i)}
                 style={{
                   objectFit: 'cover',
                   cursor: 'poiner',
@@ -117,13 +125,9 @@ const Gallery = () => {
           prevSrc={
             photos[(currentImage + photos.length - 1) % photos.length].src
           }
-          onCloseRequest={() => closeLightbox()}
-          onMovePrevRequest={() =>
-            setCurrentImage((currentImage + photos.length - 1) % photos.length)
-          }
-          onMoveNextRequest={() =>
-            setCurrentImage((currentImage + 1) % photos.length)
-          }
+          onCloseRequest={closeLightbox}
+          onMovePrevRequest={lightboxPrev}
+          onMoveNextRequest={lightboxNext}
           reactModalStyle={{ overlay: { zIndex: 1500 } }}
         />
       )}

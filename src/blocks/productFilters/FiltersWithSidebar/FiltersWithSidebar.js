@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
@@ -17,13 +17,13 @@ const WithCollapsibleMenuItems = () => {
 
   const [openSidebar, setOpenSidebar] = useState(false);
 
-  const handleSidebarOpen = () => {
+  const handleSidebarOpen = useCallback(() => {
     setOpenSidebar(true);
-  };
+  }, []);
 
-  const handleSidebarClose = () => {
+  const handleSidebarClose = useCallback(() => {
     setOpenSidebar(false);
-  };
+  }, []);
 
   const open = isMd ? false : openSidebar;
 

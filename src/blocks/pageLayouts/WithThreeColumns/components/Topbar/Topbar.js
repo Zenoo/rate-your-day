@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -30,12 +30,18 @@ const Topbar = ({ onSidebarOpen }) => {
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event) => {
+
+  const handleClick = useCallback((event) => {
     setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
+  }, []);
+
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
-  };
+  }, []);
+
+  const handleSidebarOpen = useCallback(() => {
+    onSidebarOpen();
+  }, [onSidebarOpen]);
 
   return (
     <Box
@@ -162,7 +168,7 @@ const Topbar = ({ onSidebarOpen }) => {
         </Box>
         <Box sx={{ display: { xs: 'block', md: 'none' } }} marginLeft={2}>
           <Button
-            onClick={() => onSidebarOpen()}
+            onClick={handleSidebarOpen}
             aria-label="Menu"
             variant={'outlined'}
             sx={{

@@ -15,7 +15,7 @@ const Hero = () => {
     defaultMatches: true,
   });
 
-  const LeftSide = () => (
+  const leftSide = (
     <Box data-aos={isMd ? 'fade-right' : 'fade-up'}>
       <Box marginBottom={2}>
         <Typography variant="h2" color="text.primary" sx={{ fontWeight: 700 }}>
@@ -48,32 +48,30 @@ const Hero = () => {
     </Box>
   );
 
-  const RightSide = () => {
-    return (
+  const rightSide = (
+    <Box
+      sx={{
+        height: { xs: 'auto', md: 1 },
+        '& img': {
+          objectFit: 'cover',
+        },
+        '& .lazy-load-image-loaded': {
+          height: 1,
+          width: 1,
+        },
+      }}
+    >
       <Box
-        sx={{
-          height: { xs: 'auto', md: 1 },
-          '& img': {
-            objectFit: 'cover',
-          },
-          '& .lazy-load-image-loaded': {
-            height: 1,
-            width: 1,
-          },
-        }}
-      >
-        <Box
-          component={LazyLoadImage}
-          effect="blur"
-          src={'https://assets.maccarianagency.com/backgrounds/img50.jpg'}
-          height={{ xs: 'auto', md: 1 }}
-          maxHeight={{ xs: 300, md: 1 }}
-          width={1}
-          maxWidth={1}
-        />
-      </Box>
-    );
-  };
+        component={LazyLoadImage}
+        effect="blur"
+        src={'https://assets.maccarianagency.com/backgrounds/img50.jpg'}
+        height={{ xs: 'auto', md: 1 }}
+        maxHeight={{ xs: 300, md: 1 }}
+        width={1}
+        maxWidth={1}
+      />
+    </Box>
+  );
 
   return (
     <Box
@@ -97,7 +95,7 @@ const Hero = () => {
             alignItems={'center'}
           >
             <Container>
-              <LeftSide />
+              {leftSide}
             </Container>
           </Box>
           <Box
@@ -139,7 +137,7 @@ const Hero = () => {
                     },
                   }}
                 >
-                  <RightSide />
+                  {rightSide}
                 </Box>
               </Box>
             </Box>

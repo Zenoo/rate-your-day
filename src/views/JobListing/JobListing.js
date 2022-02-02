@@ -1,23 +1,10 @@
-import React from 'react';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-
-import Main from 'layouts/Main';
 import Container from 'components/Container';
-import {
-  AboutTop,
-  Advantages,
-  Customers,
-  Features,
-  Hero,
-  Jobs,
-  Newsletter,
-  Partners,
-  Process,
-  PromoNumbers,
-  Questions,
-  TrustedCompanies,
-} from './components';
+import Main from 'layouts/Main';
+import React from 'react';
+import { AboutTop, Advantages, Customers, Features, Hero, Jobs, Newsletter, Partners, Process, PromoNumbers, Questions, TrustedCompanies } from './components';
+
 
 const JobListing = () => {
   return (

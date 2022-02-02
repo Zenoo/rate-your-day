@@ -31,7 +31,7 @@ const validationSchema = yup.object({
     .string()
     .trim()
     .matches(
-      /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)$/,
+      /^(?:\+?\d{0,4})?\s?-?\s?(?:\(?\d{3}\)?)\s?-?\s?(?:\(?\d{3}\)?)\s?-?\s?(?:\(?\d{4}\)?)$/,
       'Please enter a valid phone number.',
     ),
   budget: yup.string().required('Please specify your project budget'),

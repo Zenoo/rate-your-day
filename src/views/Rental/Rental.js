@@ -1,21 +1,10 @@
-import React from 'react';
 import Box from '@mui/material/Box';
-
-import Main from 'layouts/Main';
 import Container from 'components/Container';
+import Main from 'layouts/Main';
+import React from 'react';
+import { Advantages, Articles, AskExpert, FeaturedProperties, Hero, Partners, Places, Reviews, Search, Teaser } from './components';
 
-import {
-  Advantages,
-  Articles,
-  AskExpert,
-  FeaturedProperties,
-  Hero,
-  Partners,
-  Places,
-  Reviews,
-  Search,
-  Teaser,
-} from './components';
+
 
 const Rental = () => {
   return (

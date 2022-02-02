@@ -8,7 +8,7 @@ import NavItem from './components/NavItem';
 
 const SidebarNav = ({ pages }) => {
   const theme = useTheme();
-  const { mode } = theme.palette;
+  const { palette: { mode } } = theme;
 
   const {
     landings: landingPages,

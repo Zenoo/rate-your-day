@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
@@ -9,9 +9,9 @@ const SortBySelectBox = () => {
   const theme = useTheme();
   const [sortBy, setSortBy] = useState(2);
 
-  const handleSelectChange = (event) => {
+  const handleSelectChange = useCallback((event) => {
     setSortBy(event.target.value);
-  };
+  }, []);
 
   return (
     <Box>

@@ -1,23 +1,10 @@
-import React from 'react';
-import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-
-import Main from 'layouts/Main';
+import { alpha, useTheme } from '@mui/material/styles';
 import Container from 'components/Container';
-import {
-  About,
-  AboutBottom,
-  Features,
-  Hero,
-  Integrations,
-  Jobs,
-  News,
-  Pricings,
-  Reviews,
-  Team,
-  Trucking,
-  Video,
-} from './components';
+import Main from 'layouts/Main';
+import React from 'react';
+import { About, AboutBottom, Features, Hero, Integrations, Jobs, News, Pricings, Reviews, Team, Trucking, Video } from './components';
+
 
 const Logistics = () => {
   const theme = useTheme();

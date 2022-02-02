@@ -89,7 +89,7 @@ const Trucking = () => {
     defaultMatches: true,
   });
 
-  const LeftSide = () => (
+  const leftSide = (
     <List disablePadding>
       {mock.map((item, index) => (
         <ListItem
@@ -116,7 +116,7 @@ const Trucking = () => {
     </List>
   );
 
-  const RightSide = () => (
+  const rightSide = (
     <Box width={1}>
       <Box
         sx={{
@@ -191,11 +191,11 @@ const Trucking = () => {
       <Grid container spacing={4}>
         <Grid item container alignItems={'center'} xs={12} md={6}>
           <Box data-aos={isMd ? 'fade-right' : 'fade-up'}>
-            <LeftSide />
+            {leftSide}
           </Box>
         </Grid>
         <Grid item container alignItems={'center'} xs={12} md={6}>
-          <RightSide />
+          {rightSide}
         </Grid>
       </Grid>
     </Box>

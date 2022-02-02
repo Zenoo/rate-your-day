@@ -1,17 +1,10 @@
-import React from 'react';
-import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import Main from 'layouts/Main';
+import { alpha, useTheme } from '@mui/material/styles';
 import Container from 'components/Container';
-import {
-  Hero,
-  About,
-  Features,
-  Payment,
-  Pricings,
-  Download,
-} from './components';
+import Main from 'layouts/Main';
+import React from 'react';
+import { About, Download, Features, Hero, Payment, Pricings } from './components';
 
 const MobileApp = () => {
   const theme = useTheme();
