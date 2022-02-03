@@ -1,38 +1,27 @@
-import React, { useState } from 'react';
-import Divider from '@mui/material/Divider';
-import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import { useTheme } from '@mui/material/styles';
-
-import Main from 'layouts/Main';
+import Toolbar from '@mui/material/Toolbar';
 import Container from 'components/Container';
-import {
-  Advantages,
-  Application,
-  Community,
-  Events,
-  Hero,
-  Locations,
-  MapHero,
-  Reviews,
-  Spaces,
-  Contact,
-} from './components';
+import Main from 'layouts/Main';
+import React, { useCallback, useState } from 'react';
+import { Advantages, Application, Community, Contact, Events, Hero, Locations, MapHero, Reviews, Spaces } from './components';
+
 
 const Coworking = () => {
   const theme = useTheme();
   const [openBottombar, setOpenBottombar] = useState(false);
 
-  const handleBottombarOpen = () => {
+  const handleBottombarOpen = useCallback(() => {
     setOpenBottombar(true);
-  };
+  }, []);
 
-  const handleBottombarClose = () => {
+  const handleBottombarClose = useCallback(() => {
     setOpenBottombar(false);
-  };
+  }, []);
 
   return (
     <Main>

@@ -1,12 +1,10 @@
 import React from 'react';
 
 // Building blocks productPickers components
-import {
-  IndexView as ProductPickersIndexView,
+import {IndexView as ProductPickersIndexView,
   ColorPicker as ColorPickerView,
   SizePicker as SizePickerView,
-  QuantityPicker as QuantityPickerView,
-} from 'blocks/productPickers';
+  QuantityPicker as QuantityPickerView} from 'blocks/productPickers';
 
 const routes = [
   {

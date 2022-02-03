@@ -1,14 +1,12 @@
 import React from 'react';
 
 // Building blocks PageLayouts components
-import {
-  IndexView as PageLayoutsIndexView,
+import {IndexView as PageLayoutsIndexView,
   WithFixedSidebar as WithFixedSidebarView,
   WithThreeColumns as WithThreeColumnsView,
   WithToggledSidebar as WithToggledSidebarView,
   WithFluidLayoutAndNoSidebar as WithFluidLayoutAndNoSidebarView,
-  WithNarrowLayoutAndNoSidebar as WithNarrowLayoutAndNoSidebarView,
-} from 'blocks/pageLayouts';
+  WithNarrowLayoutAndNoSidebar as WithNarrowLayoutAndNoSidebarView} from 'blocks/pageLayouts';
 
 const routes = [
   {

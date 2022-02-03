@@ -4,16 +4,14 @@ import Divider from '@mui/material/Divider';
 
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import {
-  Hero,
+import {Hero,
   Browsers,
   Reviews,
   Integrations,
   Partners,
   Solutions,
   Subscription,
-  VideoSection,
-} from './components';
+  VideoSection} from './components';
 
 const Enterprise = () => {
   return (

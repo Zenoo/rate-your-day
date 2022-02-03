@@ -3,8 +3,7 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import {
-  About,
+import {About,
   Advantages,
   Contact,
   Description,
@@ -12,8 +11,7 @@ import {
   PromoNumbers,
   Partners,
   Speakers,
-  VideoSection,
-} from './components';
+  VideoSection} from './components';
 
 const Expo = () => {
   return (

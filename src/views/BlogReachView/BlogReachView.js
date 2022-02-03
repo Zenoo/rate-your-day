@@ -4,15 +4,13 @@ import { useTheme } from '@mui/material/styles';
 
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import {
-  Hero,
+import {Hero,
   SearchBox,
   FeaturedArticle,
   LastStories,
   CaseStudies,
   PopularArticles,
-  Newsletter,
-} from './components';
+  Newsletter} from './components';
 
 const BlogReachView = () => {
   const theme = useTheme();

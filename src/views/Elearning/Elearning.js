@@ -4,14 +4,12 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import {
-  Categories,
+import {Categories,
   Courses,
   Hero,
   PromoNumbers,
   Reviews,
-  Subscription,
-} from './components';
+  Subscription} from './components';
 
 const Elearning = () => {
   const theme = useTheme();

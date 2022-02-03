@@ -1,12 +1,10 @@
 import React from 'react';
 
 // Building blocks productReviews components
-import {
-  IndexView as ProductReviewsIndexView,
+import {IndexView as ProductReviewsIndexView,
   ReviewDialog as ReviewDialogView,
   ReviewOverview as ReviewOverviewView,
-  ReviewQuickOverview as ReviewQuickOverviewView,
-} from 'blocks/productReviews';
+  ReviewQuickOverview as ReviewQuickOverviewView} from 'blocks/productReviews';
 
 const routes = [
   {

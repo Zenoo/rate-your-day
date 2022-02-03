@@ -1,12 +1,10 @@
 import React from 'react';
 
 // Building blocks userCards components
-import {
-  IndexView as UserCardsIndexView,
+import {IndexView as UserCardsIndexView,
   UserCardGrid as UserCardGridView,
   UserCardWithBackground as UserCardWithBackgroundView,
-  UserCardWithRating as UserCardWithRatingView,
-} from 'blocks/userCards';
+  UserCardWithRating as UserCardWithRatingView} from 'blocks/userCards';
 
 const routes = [
   {

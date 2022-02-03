@@ -1,10 +1,8 @@
 import React from 'react';
 
 // Building blocks productQuickViews components
-import {
-  IndexView as ProductQuickViewsIndexView,
-  PopupBoxWithProductDetails as PopupBoxWithProductDetailsView,
-} from 'blocks/productQuickViews';
+import {IndexView as ProductQuickViewsIndexView,
+  PopupBoxWithProductDetails as PopupBoxWithProductDetailsView} from 'blocks/productQuickViews';
 
 const routes = [
   {

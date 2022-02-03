@@ -3,16 +3,14 @@ import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import {
-  Customization,
+import {Customization,
   Download,
   Hero,
   Hub,
   Partners,
   Pricings,
   Reviews,
-  Support,
-} from './components';
+  Support} from './components';
 
 const DesktopApp = () => {
   const theme = useTheme();

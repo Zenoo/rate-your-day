@@ -1,13 +1,11 @@
 import React from 'react';
 
 // Building blocks Notifications components
-import {
-  IndexView as NotificationsIndexView,
+import {IndexView as NotificationsIndexView,
   Simple as SimpleView,
   WithActionButtons as WithActionButtonsView,
   WithAvatarAndButtonsBelow as WithAvatarAndButtonsBelowView,
-  WithSplitButtons as WithSplitButtonsView,
-} from 'blocks/notifications';
+  WithSplitButtons as WithSplitButtonsView} from 'blocks/notifications';
 
 const routes = [
   {

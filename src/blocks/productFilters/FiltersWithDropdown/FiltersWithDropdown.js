@@ -5,13 +5,11 @@ import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 
-import {
-  FilterSize,
+import {FilterSize,
   FilterPrice,
   FilterColor,
   FilterBrand,
-  SortBySelectBox,
-} from './components';
+  SortBySelectBox} from './components';
 
 import Container from 'components/Container';
 

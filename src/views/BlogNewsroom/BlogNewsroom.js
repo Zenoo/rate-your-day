@@ -7,8 +7,7 @@ import Divider from '@mui/material/Divider';
 
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import {
-  FeaturedArticles,
+import {FeaturedArticles,
   FooterNewsletter,
   Hero,
   LatestStories,
@@ -16,8 +15,7 @@ import {
   PopularNews,
   SidebarArticles,
   SidebarNewsletter,
-  Tags,
-} from './components';
+  Tags} from './components';
 
 const BlogNewsroom = () => {
   const theme = useTheme();

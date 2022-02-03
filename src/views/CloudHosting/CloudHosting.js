@@ -4,8 +4,7 @@ import { useTheme } from '@mui/material/styles';
 
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import {
-  About,
+import {About,
   Articles,
   Features,
   Hero,
@@ -16,8 +15,7 @@ import {
   Reviews,
   Storage,
   Story,
-  Support,
-} from './components';
+  Support} from './components';
 
 const CloudHosting = () => {
   const theme = useTheme();

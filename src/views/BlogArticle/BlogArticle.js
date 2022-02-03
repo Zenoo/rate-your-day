@@ -6,14 +6,12 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import {
-  Content,
+import {Content,
   FooterNewsletter,
   Hero,
   SidebarArticles,
   SidebarNewsletter,
-  SimilarStories,
-} from './components';
+  SimilarStories} from './components';
 
 const BlogArticle = () => {
   const theme = useTheme();

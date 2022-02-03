@@ -1,12 +1,10 @@
 import React from 'react';
 
 // Building blocks Lists components
-import {
-  IndexView as ListsIndexView,
+import {IndexView as ListsIndexView,
   ListWithNestedItem as ListWithNestedItemView,
   WithAvatars as WithAvatarsView,
-  ListWithVerticalLine as ListWithVerticalLineView,
-} from 'blocks/lists';
+  ListWithVerticalLine as ListWithVerticalLineView} from 'blocks/lists';
 
 const routes = [
   {

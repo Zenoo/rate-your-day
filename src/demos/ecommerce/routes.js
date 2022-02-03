@@ -1,16 +1,14 @@
 import React from 'react';
 
 // Demo E-commerce
-import {
-  IndexView,
+import {IndexView,
   Cart as CartView,
   Checkout as CheckoutView,
   EmptyCart as EmptyCartView,
   Listing as ListingView,
   Promotions as PromotionsView,
   OrderComplete as OrderCompleteView,
-  ProductOverview as ProductOverviewView,
-} from 'demos/ecommerce/views';
+  ProductOverview as ProductOverviewView} from 'demos/ecommerce/views';
 
 const routes = [
   {

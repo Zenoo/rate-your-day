@@ -1,15 +1,13 @@
 import React from 'react';
 
 // Building blocks Stats components
-import {
-  IndexView as StatsIndexView,
+import {IndexView as StatsIndexView,
   WithCountUpNumbersAndCoverImage as WithCountUpNumbersAndCoverImageView,
   WithCountUpNumbersAndMap as WithCountUpNumbersAndMapView,
   StatsWithCard as StatsWithCardView,
   WithBorderedCardsAndBrandColor as WithBorderedCardsAndBrandColorView,
   WithAbstractVisualRepresentation as WithAbstractVisualRepresentationView,
-  ClientSatisfaction as ClientSatisfactionView,
-} from 'blocks/stats';
+  ClientSatisfaction as ClientSatisfactionView} from 'blocks/stats';
 
 const routes = [
   {

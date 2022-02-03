@@ -1,22 +1,11 @@
-import React, { useEffect } from 'react';
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import NoSsr from '@mui/material/NoSsr';
-
-import Main from 'layouts/Main';
+import { useTheme } from '@mui/material/styles';
 import Container from 'components/Container';
-import {
-  Welcome,
-  Goby,
-  Process,
-  Nike2,
-  Larq,
-  Nike,
-  Trek,
-  Curology,
-  Reviews,
-  Contact,
-} from './components';
+import Main from 'layouts/Main';
+import React, { useCallback, useEffect } from 'react';
+import { Contact, Curology, Goby, Larq, Nike, Nike2, Process, Reviews, Trek, Welcome } from './components';
+
 
 const Agency = () => {
   useEffect(() => {
@@ -33,7 +22,7 @@ const Agency = () => {
     jarallaxInit();
   });
 
-  const scrollTo = (id) => {
+  const scrollTo = useCallback((id) => () => {
     setTimeout(() => {
       const element = document.querySelector(`#${id}`);
       if (!element) {
@@ -42,7 +31,7 @@ const Agency = () => {
 
       window.scrollTo({ left: 0, top: element.offsetTop, behavior: 'smooth' });
     });
-  };
+  }, []);
 
   const theme = useTheme();
 
@@ -85,7 +74,7 @@ const Agency = () => {
                   fill="currentColor"
                   width={{ xs: 30, sm: 40 }}
                   height={{ xs: 30, sm: 40 }}
-                  onClick={() => scrollTo('agency__portfolio-item--js-scroll')}
+                  onClick={scrollTo('agency__portfolio-item--js-scroll')}
                   sx={{ cursor: 'pointer' }}
                 >
                   <path

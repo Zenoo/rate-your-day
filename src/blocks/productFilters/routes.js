@@ -1,11 +1,9 @@
 import React from 'react';
 
 // Building blocks productFilters components
-import {
-  IndexView as ProductFiltersIndexView,
+import {IndexView as ProductFiltersIndexView,
   FiltersWithDropdown as FiltersWithDropdownView,
-  FiltersWithSidebar as FiltersWithSidebarView,
-} from 'blocks/productFilters';
+  FiltersWithSidebar as FiltersWithSidebarView} from 'blocks/productFilters';
 
 const routes = [
   {

@@ -1,16 +1,14 @@
 import React from 'react';
 
 // Building blocks Pricing components
-import {
-  IndexView as PricingIndexView,
+import {IndexView as PricingIndexView,
   WithHighlightingAndPrimaryColor as WithHighlightingAndPrimaryColorView,
   WithTwoColumnAndMixedHeight as WithTwoColumnAndMixedHeightView,
   WithSimpleBorderedCards as WithSimpleBorderedCardsView,
   SingleChoiceOption as SingleChoiceOptionView,
   WithHighlightingAndSecondaryColor as WithHighlightingAndSecondaryColorView,
   WithOptionTogglerButton as WithOptionTogglerButtonView,
-  CompareTable as CompareTableView,
-} from 'blocks/pricing';
+  CompareTable as CompareTableView} from 'blocks/pricing';
 
 const routes = [
   {

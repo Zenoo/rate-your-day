@@ -1,24 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
+import PropTypes from 'prop-types';
+import React, { useCallback } from 'react';
+import { FilterBrand, FilterCategory, FilterColor, FilterGender, FilterPrice, FilterSize } from './components';
 
-import {
-  FilterSize,
-  FilterBrand,
-  FilterColor,
-  FilterPrice,
-  FilterGender,
-  FilterCategory,
-} from './components';
 
 const Sidebar = ({ open, variant, onClose }) => {
+  const handleClose = useCallback(() => {
+    onClose();
+  }, [onClose]);
+
   return (
     <Drawer
       anchor="left"
-      onClose={() => onClose()}
+      onClose={handleClose}
       open={open}
       variant={variant}
       sx={{

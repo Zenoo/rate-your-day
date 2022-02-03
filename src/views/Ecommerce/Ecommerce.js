@@ -2,8 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import {
-  Categories,
+import {Categories,
   FeaturedProducts,
   Hero,
   LatestProducts,
@@ -12,8 +11,7 @@ import {
   Overview,
   Products,
   QuickSearch,
-  Reviews,
-} from './components';
+  Reviews} from './components';
 
 const Ecommerce = () => {
   return (

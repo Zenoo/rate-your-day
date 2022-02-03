@@ -1,13 +1,11 @@
 import React from 'react';
 
 // Building blocks Popver components
-import {
-  IndexView as PopoverIndexView,
+import {IndexView as PopoverIndexView,
   Simple as SimpleView,
   StackedWithFooterActions as StackedWithFooterActionsView,
   WithRecentPosts as WithRecentPostsView,
-  WithTwoColumnGrid as WithTwoColumnGridView,
-} from 'blocks/popovers';
+  WithTwoColumnGrid as WithTwoColumnGridView} from 'blocks/popovers';
 
 const routes = [
   {

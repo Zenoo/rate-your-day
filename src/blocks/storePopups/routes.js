@@ -1,11 +1,9 @@
 import React from 'react';
 
 // Building blocks storePopups components
-import {
-  IndexView as StorePopupsIndexView,
+import {IndexView as StorePopupsIndexView,
   PopupWithDiscount as PopupWithDiscountView,
-  PopupWithImage as PopupWithImageView,
-} from 'blocks/storePopups';
+  PopupWithImage as PopupWithImageView} from 'blocks/storePopups';
 
 const routes = [
   {

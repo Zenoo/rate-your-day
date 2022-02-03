@@ -1,11 +1,9 @@
 import React from 'react';
 
 // Building blocks productDetails components
-import {
-  IndexView as ProductDetailsIndexView,
+import {IndexView as ProductDetailsIndexView,
   WithLargeImage as WithLargeImageView,
-  WithImageGrid as WithImageGridView,
-} from 'blocks/productDetails';
+  WithImageGrid as WithImageGridView} from 'blocks/productDetails';
 
 const routes = [
   {

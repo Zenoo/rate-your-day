@@ -4,14 +4,12 @@ import Box from '@mui/material/Box';
 
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import {
-  Partners,
+import {Partners,
   CaseStudy1,
   CaseStudy2,
   CaseStudy3,
   Hero,
-  Contact,
-} from './components';
+  Contact} from './components';
 
 const DesignCompany = () => {
   const theme = useTheme();
