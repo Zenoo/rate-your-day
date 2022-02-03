@@ -6,7 +6,7 @@ import React from 'react';
  * @returns 
  */
 const Version = (props) => {
-  return <span {...props}>{'v0.1.1'}</span>;
+  return <span {...props}>{'v0.1.2'}</span>;
 };
 
 Version.propTypes = {};

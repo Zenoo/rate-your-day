@@ -2,7 +2,7 @@
   "name": "rate-your-day",
   "author": "zenoo",
   "email": "perso@franckdemoute.fr",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "homepage": "https://zenoo.github.io/rate-your-day",
   "scripts": {

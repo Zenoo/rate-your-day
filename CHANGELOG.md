@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/Zenoo/rate-your-day/compare/v0.1.1...v0.1.2) (2022-02-03)
+
+
+### Feature
+
+* Template import + first optimizations ([2c6c333](https://github.com/Zenoo/rate-your-day/commit/2c6c3332aa796a242cb4d2914c760f2a6e04aeb0))
+
+
+### Refactoring
+
+* callbacks and various optimizations ([c19912d](https://github.com/Zenoo/rate-your-day/commit/c19912d2f5ee9b24d826789a87e457f7d59add06))
+* useCallbacks ([a91f6b5](https://github.com/Zenoo/rate-your-day/commit/a91f6b5dd6599de53507d6bb87f862584ec37112))
+
+
+### Bug fix
+
+* Landing page + optimizations ([b02327b](https://github.com/Zenoo/rate-your-day/commit/b02327bea4558890b3c97ecb7147dadbc22167f1))
+* New logo ([1c0a0c1](https://github.com/Zenoo/rate-your-day/commit/1c0a0c1569ef2a7b76e3847ecc8442918b926067))
+
 ### 0.1.1 (2022-02-02)
 
 
