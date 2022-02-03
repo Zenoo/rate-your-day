@@ -5,10 +5,11 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
+import Image from 'components/Image';
 
 const Footer = () => {
   const theme = useTheme();
-  const { mode } = theme.palette;
+  const { palette: { mode } } = theme;
 
   return (
     <Grid container spacing={2}>
@@ -27,16 +28,7 @@ const Footer = () => {
             title="theFront"
             width={80}
           >
-            <Box
-              component={'img'}
-              src={
-                mode === 'light'
-                  ? 'https://assets.maccarianagency.com/the-front/logos/logo.svg'
-                  : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'
-              }
-              height={1}
-              width={1}
-            />
+            <Image alt={'Rate your day'} src={mode === 'light' ? 'logo-dark.png' : 'logo-white.png'} sx={{ height: 1, width: 1 }} />
           </Box>
           <Box display="flex" flexWrap={'wrap'} alignItems={'center'}>
             <Box marginTop={1} marginRight={2}>

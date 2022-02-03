@@ -1,12 +1,12 @@
-import React from 'react';
-import { useTheme } from '@mui/material/styles';
+import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-
-import Main from 'layouts/Main';
 import Container from 'components/Container';
-import { Form } from './components';
+import Main from 'layouts/Main';
+import React from 'react';
+
 
 const SigninSimple = () => {
   const theme = useTheme();
@@ -31,9 +31,7 @@ const SigninSimple = () => {
                 <Box height={1} width={1} maxWidth={500}>
                   <Box
                     component={'img'}
-                    src={
-                      'https://assets.maccarianagency.com/svg/illustrations/drawkit-illustration2.svg'
-                    }
+                    src={'images/working.svg'}
                     width={1}
                     height={1}
                     sx={{
@@ -54,7 +52,29 @@ const SigninSimple = () => {
               xs={12}
               md={6}
             >
-              <Form />
+              <Box marginBottom={4}>
+                <Typography
+                  sx={{
+                    textTransform: 'uppercase',
+                    fontWeight: 'medium',
+                  }}
+                  gutterBottom
+                  color={'text.secondary'}
+                >
+                  Coming soon
+                </Typography>
+                <Typography
+                  variant="h4"
+                  sx={{
+                    fontWeight: 700,
+                  }}
+                >
+                  Rate your day
+                </Typography>
+                <Typography color="text.secondary">
+                  Keep track of how your year went.
+                </Typography>
+              </Box>
             </Grid>
           </Grid>
         </Container>

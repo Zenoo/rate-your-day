@@ -12,7 +12,7 @@ import 'aos/dist/aos.css';
 const App = () => {
   return (
     <Page>
-      <BrowserRouter basename="rate-my-day">
+      <BrowserRouter basename="rate-your-day">
         <Routes />
       </BrowserRouter>
     </Page>

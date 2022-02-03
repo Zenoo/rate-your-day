@@ -4,7 +4,7 @@
   "email": "perso@franckdemoute.fr",
   "version": "0.1.1",
   "private": true,
-  "homepage": "https://zenoo.github.io/rate-my-day",
+  "homepage": "https://zenoo.github.io/rate-your-day",
   "scripts": {
     "start": "react-scripts start",
     "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
