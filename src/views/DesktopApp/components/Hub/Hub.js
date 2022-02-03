@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -36,13 +36,13 @@ const Hero = () => {
   });
 
   const [viewPortEntered, setViewPortEntered] = useState(false);
-  const setViewPortVisibility = (isVisible) => {
+  const setViewPortVisibility = useCallback((isVisible) => {
     if (viewPortEntered) {
       return;
     }
 
     setViewPortEntered(isVisible);
-  };
+  }, [viewPortEntered]);
 
   return (
     <Grid container spacing={4}>
@@ -103,9 +103,7 @@ const Hero = () => {
                   <Typography variant="h3" gutterBottom>
                     <Box fontWeight={600}>
                       <VisibilitySensor
-                        onChange={(isVisible) =>
-                          setViewPortVisibility(isVisible)
-                        }
+                        onChange={setViewPortVisibility}
                         delayedCall
                       >
                         <CountUp

@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Button from '@mui/material/Button';
 import { alpha, useTheme } from '@mui/material/styles';
 
 const ThemeModeToggler = () => {
   const theme = useTheme();
-  const { themeToggler } = theme;
-  const { mode } = theme.palette;
+  const { palette: { mode }, themeToggler } = theme;
+
+  const toggleTheme = useCallback(() => {
+    themeToggler();
+  }, [themeToggler]);
 
   return (
     <Button
       variant={'outlined'}
-      onClick={() => themeToggler()}
+      onClick={toggleTheme}
       aria-label="Dark mode toggler"
       color={mode === 'light' ? 'primary' : 'secondary'}
       sx={{

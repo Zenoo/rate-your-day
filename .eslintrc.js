@@ -89,6 +89,7 @@ module.exports = {
     'react/jsx-no-useless-fragment': 'error',
     'react/jsx-props-no-spreading': 'off',
     'react/no-multi-comp': 'error',
+    'react/no-unescaped-entities': 'off',
     'no-nested-ternary': 'off',
     'sort-imports': 'off',
     'space-infix-ops': 'off',

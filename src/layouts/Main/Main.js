@@ -1,21 +1,23 @@
-import React, { useCallback, useState } from 'react';
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import AppBar from '@mui/material/AppBar';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-
 import Container from 'components/Container';
-import TopNav from 'components/TopNav';
-
-import { Topbar, Sidebar, Footer } from './components';
-
+import PropTypes from 'prop-types';
+import React, { useCallback, useState } from 'react';
 import pages from '../navigation';
+import { Footer, Sidebar, Topbar } from './components';
+import { Link } from 'react-router-dom';
+import Image from 'components/Image';
 
 const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
   const theme = useTheme();
+  const { palette: { mode } } = theme;
+  // TODO
+  const loggedIn = false;
+
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
   });
@@ -39,11 +41,6 @@ const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
 
   return (
     <Box>
-      <Box bgcolor={bgcolor} position={'relative'} zIndex={theme.zIndex.appBar}>
-        <Container paddingTop={'8px !important'} paddingBottom={'0 !important'}>
-          <TopNav colorInvert={colorInvert} />
-        </Container>
-      </Box>
       <AppBar
         position={'sticky'}
         sx={{
@@ -53,11 +50,30 @@ const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
         elevation={trigger ? 1 : 0}
       >
         <Container paddingY={1}>
-          <Topbar
-            onSidebarOpen={handleSidebarOpen}
-            pages={pages}
-            colorInvert={trigger ? false : colorInvert}
-          />
+          {loggedIn ? (
+            <Topbar
+              onSidebarOpen={handleSidebarOpen}
+              pages={pages}
+              colorInvert={trigger ? false : colorInvert}
+            />
+          ) : (
+            <Box
+              display={'flex'}
+              justifyContent={'space-between'}
+              alignItems={'center'}
+              width={1}
+            >
+              <Box
+                display={'flex'}
+                component={Link}
+                to="/"
+                title="Rate your day"
+                width={{ xs: 100, md: 120 }}
+              >
+                <Image alt={'Rate your day'} src={mode === 'light' ? 'logo-dark.png' : 'logo-white.png'} sx={{ height: 40, width: 1 }} />
+              </Box>
+            </Box>
+          )}
         </Container>
       </AppBar>
       <Sidebar

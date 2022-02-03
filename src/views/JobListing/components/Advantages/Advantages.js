@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { colors } from '@mui/material';
 import Box from '@mui/material/Box';

@@ -8,7 +8,7 @@ import { useTheme } from '@mui/material/styles';
 
 const Footer = () => {
   const theme = useTheme();
-  const { mode } = theme.palette;
+  const { palette: { mode } } = theme;
 
   return (
     <Grid container spacing={2}>

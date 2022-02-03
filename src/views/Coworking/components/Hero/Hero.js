@@ -10,13 +10,22 @@ import { alpha, useTheme } from '@mui/material/styles';
 
 import Container from 'components/Container';
 
+const sliderOpts = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+};
+
 const Hero = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
   });
 
-  const LeftSide = () => (
+  const leftSide = (
     <Box data-aos={isMd ? 'fade-right' : 'fade-up'}>
       <Typography
         sx={{
@@ -87,71 +96,60 @@ const Hero = () => {
     </Box>
   );
 
-  const RightSide = () => {
-    const sliderOpts = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: true,
-    };
-
-    return (
-      <Box
-        sx={{
+  const rightSide = (
+    <Box
+      sx={{
+        height: { xs: 'auto', md: 1 },
+        '& .slick-slide img': {
+          objectFit: 'cover',
+        },
+        '& .slick-list, & .slick-slider, & .slick-track, & .slick-slide > div': {
           height: { xs: 'auto', md: 1 },
-          '& .slick-slide img': {
-            objectFit: 'cover',
+        },
+        '& .slick-prev, & .slick-next': {
+          zIndex: 2,
+          bottom: 0,
+          top: '100%',
+          left: '100%',
+          right: 0,
+          transform: `translate(-100%, calc(-100% - ${theme.spacing(2)}))`,
+          marginLeft: theme.spacing(-2),
+          width: 32,
+          height: 32,
+          '&:before': {
+            fontSize: 32,
           },
-          '& .slick-list, & .slick-slider, & .slick-track, & .slick-slide > div': {
-            height: { xs: 'auto', md: 1 },
-          },
-          '& .slick-prev, & .slick-next': {
-            zIndex: 2,
-            bottom: 0,
-            top: '100%',
-            left: '100%',
-            right: 0,
-            transform: `translate(-100%, calc(-100% - ${theme.spacing(2)}))`,
-            marginLeft: theme.spacing(-2),
-            width: 32,
-            height: 32,
-            '&:before': {
-              fontSize: 32,
-            },
-          },
-          '& .slick-prev': {
-            marginLeft: theme.spacing(-7),
-          },
-          '& .lazy-load-image-loaded': {
-            height: 1,
-            width: 1,
-          },
-        }}
-      >
-        <Slider {...sliderOpts}>
-          {[
-            'https://assets.maccarianagency.com/backgrounds/img1.jpg',
-            'https://assets.maccarianagency.com/backgrounds/img3.jpg',
-            'https://assets.maccarianagency.com/backgrounds/img24.jpg',
-            'https://assets.maccarianagency.com/backgrounds/img25.jpg',
-          ].map((item) => (
-            <Box
-              key={item}
-              component={LazyLoadImage}
-              effect="blur"
-              src={item}
-              height={{ xs: 'auto', md: 1 }}
-              maxHeight={{ xs: 300, md: 1 }}
-              width={1}
-              maxWidth={1}
-            />
-          ))}
-        </Slider>
-      </Box>
-    );
-  };
+        },
+        '& .slick-prev': {
+          marginLeft: theme.spacing(-7),
+        },
+        '& .lazy-load-image-loaded': {
+          height: 1,
+          width: 1,
+        },
+      }}
+    >
+      <Slider {...sliderOpts}>
+        {[
+          'https://assets.maccarianagency.com/backgrounds/img1.jpg',
+          'https://assets.maccarianagency.com/backgrounds/img3.jpg',
+          'https://assets.maccarianagency.com/backgrounds/img24.jpg',
+          'https://assets.maccarianagency.com/backgrounds/img25.jpg',
+        ].map((item) => (
+          <Box
+            key={item}
+            component={LazyLoadImage}
+            effect="blur"
+            src={item}
+            height={{ xs: 'auto', md: 1 }}
+            maxHeight={{ xs: 300, md: 1 }}
+            width={1}
+            maxWidth={1}
+          />
+        ))}
+      </Slider>
+    </Box>
+  );
 
   return (
     <Box
@@ -175,7 +173,7 @@ const Hero = () => {
             alignItems={'center'}
           >
             <Container>
-              <LeftSide />
+              {leftSide}
             </Container>
           </Box>
           <Box
@@ -217,7 +215,7 @@ const Hero = () => {
                     },
                   }}
                 >
-                  <RightSide />
+                  {rightSide}
                 </Box>
               </Box>
             </Box>

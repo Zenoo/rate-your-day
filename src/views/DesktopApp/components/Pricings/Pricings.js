@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
@@ -24,9 +24,9 @@ const Pricing = () => {
 
   const [pricingOption, setPricingOption] = useState('annual');
 
-  const handleClick = (event, newPricingOption) => {
+  const handleClick = useCallback((event, newPricingOption) => {
     setPricingOption(newPricingOption);
-  };
+  }, []);
 
   return (
     <Box>

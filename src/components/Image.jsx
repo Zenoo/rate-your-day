@@ -18,15 +18,17 @@ const Image = ({
   const { groups: { extension } } = src.match(/\.(?<extension>[^/.]+)$/);
   return (
     <picture>
-      <source
-        srcSet={`/rate-your-day/images/webp/${src.replace(/\.[^/.]+$/, '')}.webp`}
-        type="image/webp"
-      />
+      {extension !== 'svg' && (
+        <source
+          srcSet={`/rate-your-day/images/webp/${src.replace(/\.[^/.]+$/, '')}.webp`}
+          type="image/webp"
+        />
+      )}
       <source
         srcSet={`/rate-your-day/images/${src}`}
         type={`image/${extension === 'jpg' ? 'jpeg' : extension}`}
       />
-      <Box alt={alt} component="img" src={`/static/images/${src}`} {...rest} />
+      <Box alt={alt} component="img" src={`/rate-your-day/images/${src}`} {...rest} />
     </picture>
   );
 };

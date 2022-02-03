@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -15,19 +15,19 @@ const FilterPrice = () => {
   const [value, setValue] = useState([20, 400]);
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const handleClick = (event) => {
+  const handleClick = useCallback((event) => {
     setAnchorEl(event.target);
     setOpen(true);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
     setOpen(false);
-  };
+  }, []);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = useCallback((event, newValue) => {
     setValue(newValue);
-  };
+  }, []);
 
   return (
     <Box display={'flex'} justifyContent={'center'}>
@@ -39,7 +39,7 @@ const FilterPrice = () => {
         paddingY={1}
         paddingX={2}
         sx={{ cursor: 'pointer' }}
-        onClick={(e) => handleClick(e)}
+        onClick={handleClick}
       >
         <Typography>Price</Typography>
         <ExpandMoreIcon
@@ -82,7 +82,6 @@ const FilterPrice = () => {
             </Typography>
             <Box sx={{ width: 300 }} marginTop={4} paddingX={2}>
               <Slider
-                getAriaLabel={() => 'Price range'}
                 value={value}
                 onChange={handleChange}
                 valueLabelDisplay="auto"

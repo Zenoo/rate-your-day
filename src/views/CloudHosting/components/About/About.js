@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useTheme } from '@mui/material/styles';
@@ -22,7 +21,7 @@ const About = () => {
     defaultMatches: true,
   });
 
-  const LeftSide = () => (
+  const leftSide = (
     <Box>
       <Box marginBottom={2}>
         <Typography
@@ -107,7 +106,7 @@ const About = () => {
     <Grid container spacing={4}>
       <Grid item container alignItems={'center'} xs={12} md={6}>
         <Box data-aos={isMd ? 'fade-right' : 'fade-up'}>
-          <LeftSide />
+          {leftSide}
         </Box>
       </Grid>
       <Grid item container alignItems={'center'} xs={12} md={6}>

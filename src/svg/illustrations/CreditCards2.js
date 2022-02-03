@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material/styles';
 
 const CreditCards2 = ({ width = 130, height = 71 }) => {
   const theme = useTheme();
-  const colorPrimaryMain = theme.palette.primary.main;
+  const { palette: { primary: { main: colorPrimaryMain } } } = theme;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -113,7 +112,7 @@ const mock = [
 const Features = () => {
   const theme = useTheme();
 
-  const LeftSide = () => (
+  const leftSide = (
     <Grid container spacing={4}>
       {mock.map((item, index) => (
         <Grid
@@ -188,7 +187,7 @@ const Features = () => {
     </Grid>
   );
 
-  const RightSide = () => (
+  const rightSide = (
     <Box>
       <Box marginBottom={2}>
         <Typography
@@ -284,10 +283,10 @@ const Features = () => {
   return (
     <Grid container spacing={4}>
       <Grid item xs={12} md={6}>
-        <LeftSide />
+        {leftSide}
       </Grid>
       <Grid item container alignItems={'center'} xs={12} md={6}>
-        <RightSide />
+        {rightSide}
       </Grid>
     </Grid>
   );

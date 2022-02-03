@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Container from 'components/Container';
+import Image from 'components/Image';
 import Main from 'layouts/Main';
 import React from 'react';
 
@@ -29,12 +30,12 @@ const SigninSimple = () => {
             {isMd ? (
               <Grid item container justifyContent={'center'} xs={12} md={6}>
                 <Box height={1} width={1} maxWidth={500}>
-                  <Box
-                    component={'img'}
-                    src={'images/working.svg'}
-                    width={1}
-                    height={1}
+                  <Image
+                    alt="Coming soon"
+                    src="working.svg"
                     sx={{
+                      width: 1,
+                      height: 1,
                       filter:
                         theme.palette.mode === 'dark'
                           ? 'brightness(0.8)'

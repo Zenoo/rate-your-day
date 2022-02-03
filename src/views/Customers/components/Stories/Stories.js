@@ -77,7 +77,7 @@ const mock = [
 
 const Stories = () => {
   const theme = useTheme();
-  const { mode } = theme.palette;
+  const { palette: { mode } } = theme;
 
   return (
     <Box>

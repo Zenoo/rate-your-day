@@ -3,7 +3,7 @@ import { useTheme } from '@mui/material/styles';
 
 const LaptopSkeleton = () => {
   const theme = useTheme();
-  const { mode } = theme.palette;
+  const { palette: { mode } } = theme;
 
   return (
     <svg

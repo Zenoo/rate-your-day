@@ -4,8 +4,10 @@ import { useTheme } from '@mui/material/styles';
 
 const Chart4 = ({ width = 274, height = 208 }) => {
   const theme = useTheme();
-  const colorPaper = theme.palette.background.paper;
-  const colorPrimaryMain = theme.palette.primary.main;
+  const { palette: {
+    primary: { main: colorPrimaryMain },
+    background: { paper: colorPaper },
+  } } = theme;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

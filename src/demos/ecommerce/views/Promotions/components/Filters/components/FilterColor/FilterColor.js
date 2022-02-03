@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -12,15 +12,19 @@ const FilterColor = () => {
   const [color, setColor] = useState('blue');
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const handleClick = (event) => {
+  const handleClick = useCallback((event) => {
     setAnchorEl(event.target);
     setOpen(true);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
     setOpen(false);
-  };
+  }, []);
+
+  const changeColor = useCallback((color) => () => {
+    setColor(color);
+  }, []);
 
   return (
     <Box display={'flex'} justifyContent={'center'}>
@@ -32,7 +36,7 @@ const FilterColor = () => {
         paddingY={1}
         paddingX={2}
         sx={{ cursor: 'pointer' }}
-        onClick={(e) => handleClick(e)}
+        onClick={handleClick}
       >
         <Typography>Color</Typography>
         <ExpandMoreIcon
@@ -78,7 +82,7 @@ const FilterColor = () => {
                 (item) => (
                   <Box
                     key={item}
-                    onClick={() => setColor(item)}
+                    onClick={changeColor(item)}
                     sx={{
                       borderRadius: '100%',
                       padding: 0.5,

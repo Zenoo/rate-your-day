@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { alpha, useTheme } from '@mui/material/styles';

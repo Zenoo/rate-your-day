@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -14,22 +14,22 @@ const FilterBrand = () => {
   const [brands, setBrands] = useState([]);
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const handleClick = (event) => {
+  const handleClick = useCallback((event) => {
     setAnchorEl(event.target);
     setOpen(true);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
     setOpen(false);
-  };
+  }, []);
 
-  const handleCheckboxChange = (item) => {
+  const handleCheckboxChange = useCallback((item) => () => {
     const newBrands = brands;
     const index = newBrands.indexOf(item);
     index === -1 ? newBrands.push(item) : newBrands.splice(index, 1);
     setBrands(newBrands);
-  };
+  }, [brands]);
 
   return (
     <Box display={'flex'} justifyContent={'center'}>
@@ -41,7 +41,7 @@ const FilterBrand = () => {
         paddingY={1}
         paddingX={2}
         sx={{ cursor: 'pointer' }}
-        onClick={(e) => handleClick(e)}
+        onClick={handleClick}
       >
         <Typography>Brand</Typography>
         <ExpandMoreIcon
@@ -93,7 +93,7 @@ const FilterBrand = () => {
                       <Checkbox
                         color="primary"
                         defaultChecked={brands.indexOf(item) >= 0}
-                        onChange={() => handleCheckboxChange(item)}
+                        onChange={handleCheckboxChange(item)}
                       />
                     }
                     label={item}

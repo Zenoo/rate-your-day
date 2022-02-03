@@ -1,5 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { useTheme } from '@mui/material/styles';
@@ -37,13 +36,13 @@ const Process = () => {
   });
 
   const [viewPortEntered, setViewPortEntered] = useState(false);
-  const setViewPortVisibility = (isVisible) => {
+  const setViewPortVisibility = useCallback((isVisible) => {
     if (viewPortEntered) {
       return;
     }
 
     setViewPortEntered(isVisible);
-  };
+  }, [viewPortEntered]);
 
   return (
     <Box>
@@ -65,9 +64,7 @@ const Process = () => {
                   <Typography variant="h4" gutterBottom color="primary">
                     <Box fontWeight={600}>
                       <VisibilitySensor
-                        onChange={(isVisible) =>
-                          setViewPortVisibility(isVisible)
-                        }
+                        onChange={setViewPortVisibility}
                         delayedCall
                       >
                         <CountUp

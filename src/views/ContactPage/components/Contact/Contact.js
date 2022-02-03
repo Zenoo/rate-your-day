@@ -66,75 +66,71 @@ const mock = [
 const Contact = () => {
   const theme = useTheme();
 
-  const LeftSide = () => {
-    return (
-      <Box>
-        <Box marginBottom={2}>
-          <Typography variant={'h4'} sx={{ fontWeight: 700 }} gutterBottom>
-            Contact details
-          </Typography>
-          <Typography color="text.secondary">
-            Rather than worrying about switching offices every couple years, you
-            can instead stay in the same location and grow-up from your shared
-            coworking space to an office that takes up an entire floor.
-          </Typography>
-        </Box>
-        <Box
-          display={'flex'}
-          flexDirection={'column'}
-          justifyContent={'space-between'}
-        >
-          {mock.map((item, i) => (
+  const leftSide = (
+    <Box>
+      <Box marginBottom={2}>
+        <Typography variant={'h4'} sx={{ fontWeight: 700 }} gutterBottom>
+          Contact details
+        </Typography>
+        <Typography color="text.secondary">
+          Rather than worrying about switching offices every couple years, you
+          can instead stay in the same location and grow-up from your shared
+          coworking space to an office that takes up an entire floor.
+        </Typography>
+      </Box>
+      <Box
+        display={'flex'}
+        flexDirection={'column'}
+        justifyContent={'space-between'}
+      >
+        {mock.map((item, i) => (
+          <Box
+            key={i}
+            component={ListItem}
+            disableGutters
+            width={'auto'}
+            padding={0}
+          >
             <Box
-              key={i}
-              component={ListItem}
-              disableGutters
-              width={'auto'}
-              padding={0}
+              component={ListItemAvatar}
+              minWidth={'auto !important'}
+              marginRight={2}
             >
               <Box
-                component={ListItemAvatar}
-                minWidth={'auto !important'}
-                marginRight={2}
+                component={Avatar}
+                bgcolor={theme.palette.secondary.main}
+                width={40}
+                height={40}
               >
-                <Box
-                  component={Avatar}
-                  bgcolor={theme.palette.secondary.main}
-                  width={40}
-                  height={40}
-                >
-                  {item.icon}
-                </Box>
+                {item.icon}
               </Box>
-              <ListItemText primary={item.label} secondary={item.value} />
             </Box>
-          ))}
-        </Box>
+            <ListItemText primary={item.label} secondary={item.value} />
+          </Box>
+        ))}
       </Box>
-    );
-  };
+    </Box>
+  );
 
-  const RightSide = () => {
-    return (
-      <iframe
-        width="100%"
-        height="100%"
-        frameBorder="0"
-        title="map"
-        marginHeight={0}
-        marginWidth={0}
-        scrolling="no"
-        src="https://maps.google.com/maps?width=100%&height=100%&hl=en&q=Milan&ie=UTF8&t=&z=14&iwloc=B&output=embed"
-        style={{
-          minHeight: 300,
-          filter:
-            theme.palette.mode === 'dark'
-              ? 'grayscale(0.5) opacity(0.7)'
-              : 'none',
-        }}
-      />
-    );
-  };
+  const rightSide = (
+    <iframe
+      width="100%"
+      height="100%"
+      frameBorder="0"
+      title="map"
+      marginHeight={0}
+      marginWidth={0}
+      scrolling="no"
+      src="https://maps.google.com/maps?width=100%&height=100%&hl=en&q=Milan&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+      style={{
+        minHeight: 300,
+        filter:
+          theme.palette.mode === 'dark'
+            ? 'grayscale(0.5) opacity(0.7)'
+            : 'none',
+      }}
+    />
+  );
 
   return (
     <Box
@@ -157,7 +153,7 @@ const Contact = () => {
             order={{ xs: 2, md: 1 }}
           >
             <Container>
-              <LeftSide />
+              {leftSide}
             </Container>
           </Box>
           <Box
@@ -192,7 +188,7 @@ const Contact = () => {
                     position: { xs: 'relative', md: 'absolute' },
                   }}
                 >
-                  <RightSide />
+                  {rightSide}
                 </Box>
               </Box>
             </Box>

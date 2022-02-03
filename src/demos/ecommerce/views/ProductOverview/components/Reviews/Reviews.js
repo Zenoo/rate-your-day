@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -57,6 +57,10 @@ const Reviews = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
+  const toggleOpen = useCallback((value) => () => {
+    setOpen(value);
+  }, []);
+
   return (
     <Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
       <Grid container spacing={4}>
@@ -104,7 +108,7 @@ const Reviews = () => {
               sx={{
                 marginTop: { xs: 2, md: 0 },
               }}
-              onClick={() => setOpen(true)}
+              onClick={toggleOpen(true)}
             >
               Write a review
             </Button>
@@ -140,7 +144,7 @@ const Reviews = () => {
           </Grid>
         ))}
       </Grid>
-      <FeedbackForm open={open} onClose={() => setOpen(false)} />
+      <FeedbackForm open={open} onClose={toggleOpen(false)} />
     </Box>
   );
 };

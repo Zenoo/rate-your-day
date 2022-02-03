@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Box from '@mui/material/Box';
@@ -16,7 +15,7 @@ const About = () => {
     defaultMatches: true,
   });
 
-  const LeftSide = () => (
+  const leftSide = (
     <Box data-aos={isMd ? 'fade-right' : 'fade-up'}>
       <Box marginBottom={2}>
         <Typography variant="h4" color="text.primary" sx={{ fontWeight: 700 }}>
@@ -62,32 +61,30 @@ const About = () => {
     </Box>
   );
 
-  const RightSide = () => {
-    return (
+  const rightSide = (
+    <Box
+      sx={{
+        height: { xs: 'auto', md: 1 },
+        '& img': {
+          objectFit: 'cover',
+        },
+        '& .lazy-load-image-loaded': {
+          height: 1,
+          width: 1,
+        },
+      }}
+    >
       <Box
-        sx={{
-          height: { xs: 'auto', md: 1 },
-          '& img': {
-            objectFit: 'cover',
-          },
-          '& .lazy-load-image-loaded': {
-            height: 1,
-            width: 1,
-          },
-        }}
-      >
-        <Box
-          component={LazyLoadImage}
-          effect="blur"
-          src={'https://assets.maccarianagency.com/backgrounds/img19.jpg'}
-          height={{ xs: 'auto', md: 1 }}
-          maxHeight={{ xs: 300, md: 1 }}
-          width={1}
-          maxWidth={1}
-        />
-      </Box>
-    );
-  };
+        component={LazyLoadImage}
+        effect="blur"
+        src={'https://assets.maccarianagency.com/backgrounds/img19.jpg'}
+        height={{ xs: 'auto', md: 1 }}
+        maxHeight={{ xs: 300, md: 1 }}
+        width={1}
+        maxWidth={1}
+      />
+    </Box>
+  );
 
   return (
     <Box
@@ -105,7 +102,7 @@ const About = () => {
         >
           <Box width={1} order={{ xs: 2, md: 1 }}>
             <Container>
-              <LeftSide />
+              {leftSide}
             </Container>
           </Box>
           <Box
@@ -139,7 +136,7 @@ const About = () => {
                     position: { xs: 'relative', md: 'absolute' },
                   }}
                 >
-                  <RightSide />
+                  {rightSide}
                 </Box>
               </Box>
             </Box>

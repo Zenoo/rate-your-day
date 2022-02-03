@@ -1,7 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import React from 'react';
 
 const mock = [
   {
@@ -47,36 +46,25 @@ const mock = [
   },
 ];
 
-const PrivacySection = ({ title, description }) => {
-  return (
-    <Box>
-      <Typography
-        variant={'h6'}
-        gutterBottom
-        sx={{
-          fontWeight: 'medium',
-        }}
-      >
-        {title}
-      </Typography>
-      <Typography component={'p'} color={'text.secondary'}>
-        {description}
-      </Typography>
-    </Box>
-  );
-};
-
-PrivacySection.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-};
-
 const Content = () => {
   return (
     <Box>
       {mock.map((item, i) => (
         <Box key={i} marginBottom={i < mock.length - 1 ? 4 : 0}>
-          <PrivacySection {...item} />
+          <Box>
+            <Typography
+              variant={'h6'}
+              gutterBottom
+              sx={{
+                fontWeight: 'medium',
+              }}
+            >
+              {item.title}
+            </Typography>
+            <Typography component={'p'} color={'text.secondary'}>
+              {item.description}
+            </Typography>
+          </Box>
         </Box>
       ))}
     </Box>

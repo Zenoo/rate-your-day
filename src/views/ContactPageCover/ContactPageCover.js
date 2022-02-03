@@ -14,7 +14,7 @@ const ContactPageCover = () => {
     defaultMatches: true,
   });
 
-  const Sidebar = () => (
+  const sidebar = (
     <Box
       flex={'1 1 30%'}
       maxWidth={'30%'}
@@ -51,6 +51,7 @@ const ContactPageCover = () => {
       </Box>
     </Box>
   );
+
   return (
     <Main>
       <Box
@@ -59,7 +60,7 @@ const ContactPageCover = () => {
         display={'flex'}
         marginTop={-13}
       >
-        {isMd ? <Sidebar /> : null}
+        {isMd ? sidebar : null}
         <Box
           flex={{ xs: '1 1 100%', md: '1 1 70%' }}
           maxWidth={{ xs: '100%', md: '70%' }}

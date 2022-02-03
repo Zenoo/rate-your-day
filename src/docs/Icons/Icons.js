@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
