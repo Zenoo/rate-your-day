@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
@@ -17,10 +17,14 @@ import Navigation from '../../components/Navigation';
 const Sidebar = ({ open, variant, onClose }) => {
   const theme = useTheme();
 
+  const handleClose = useCallback(() => {
+    onClose();
+  }, [onClose]);
+
   return (
     <Drawer
       anchor="left"
-      onClose={() => onClose()}
+      onClose={handleClose}
       open={open}
       variant={variant}
       sx={{

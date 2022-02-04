@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
@@ -18,16 +18,16 @@ const FilterBrand = () => {
   const [open, setOpen] = useState(true);
   const [brands, setBrands] = useState([]);
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
+  const handleClick = useCallback(() => {
+    setOpen((prevOpen) => !prevOpen);
+  }, []);
 
-  const handleCheckboxChange = (item) => {
+  const handleCheckboxChange = useCallback((item) => () => {
     const newBrands = brands;
     const index = newBrands.indexOf(item);
     index === -1 ? newBrands.push(item) : newBrands.splice(index, 1);
     setBrands(newBrands);
-  };
+  }, [brands]);
 
   return (
     <Box>
@@ -36,7 +36,7 @@ const FilterBrand = () => {
         justifyContent={'space-between'}
         sx={{ cursor: 'pointer' }}
         marginBottom={1}
-        onClick={() => handleClick()}
+        onClick={handleClick}
       >
         <Typography fontWeight={700}>Brand</Typography>
         {open ? <ExpandLess /> : <ExpandMore />}
@@ -100,7 +100,7 @@ const FilterBrand = () => {
                   <Checkbox
                     color="primary"
                     defaultChecked={brands.indexOf(item) >= 0}
-                    onChange={() => handleCheckboxChange(item)}
+                    onChange={handleCheckboxChange(item)}
                     sx={{
                       padding: 0,
                       marginRight: 1,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 
@@ -19,6 +19,11 @@ const mock = [
 
 const Image = () => {
   const [current, setCurrent] = useState(mock[0]);
+
+  const changeCurrent = useCallback((item) => () => {
+    setCurrent(item);
+  }, []);
+  
   return (
     <Box>
       {current && (
@@ -47,7 +52,7 @@ const Image = () => {
         {mock.map((item, i) => (
           <Box
             key={i}
-            onClick={() => setCurrent(item)}
+            onClick={changeCurrent(item)}
             sx={{
               width: 80,
               height: 'auto',

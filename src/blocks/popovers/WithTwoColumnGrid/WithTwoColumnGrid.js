@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -153,15 +153,16 @@ const WithTwoColumnGrid = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const handleClick = (event) => {
+
+  const handleClick = useCallback((event) => {
     setAnchorEl(event.target);
     setOpen(true);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
     setOpen(false);
-  };
+  }, []);
 
   return (
     <Container>
@@ -170,7 +171,7 @@ const WithTwoColumnGrid = () => {
           display={'flex'}
           alignItems={'center'}
           sx={{ cursor: 'pointer' }}
-          onClick={(e) => handleClick(e)}
+          onClick={handleClick}
         >
           <Typography>Solutions</Typography>
           <ExpandMoreIcon

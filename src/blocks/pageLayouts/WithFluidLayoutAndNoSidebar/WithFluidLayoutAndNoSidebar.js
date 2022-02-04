@@ -7,24 +7,6 @@ import AppBar from '@mui/material/AppBar';
 import Container from 'components/Container';
 import { Topbar, Footer } from './components';
 
-const ChildMock = () => {
-  const theme = useTheme();
-  return (
-    <Box p={4}>
-      <Box
-        width={1}
-        height={1}
-        minHeight={800}
-        borderRadius={2}
-        border={`2px solid ${theme.palette.divider}`}
-        sx={{
-          borderStyle: 'dashed',
-        }}
-      />
-    </Box>
-  );
-};
-
 const WithFluidLayoutAndNoSidebar = () => {
   const theme = useTheme();
   return (
@@ -46,7 +28,18 @@ const WithFluidLayoutAndNoSidebar = () => {
         <Box display="flex" flex="1 1 auto" overflow="hidden">
           <Box display="flex" flex="1 1 auto" overflow="hidden">
             <Box flex="1 1 auto" height="100%" overflow="auto">
-              <ChildMock />
+              <Box p={4}>
+                <Box
+                  width={1}
+                  height={1}
+                  minHeight={800}
+                  borderRadius={2}
+                  border={`2px solid ${theme.palette.divider}`}
+                  sx={{
+                    borderStyle: 'dashed',
+                  }}
+                />
+              </Box>
               <Divider />
               <Container paddingY={4}>
                 <Footer />

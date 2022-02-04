@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -10,6 +10,10 @@ import Container from 'components/Container';
 const PopupWithDiscount = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
+
+  const changeOpen = useCallback((value) => () => {
+    setOpen(value);
+  }, []);
 
   return (
     <Container display={'flex'} justifyContent={'center'} alignItems={'center'}>
@@ -64,11 +68,11 @@ const PopupWithDiscount = () => {
               />
             </svg>
           }
-          onClick={() => setOpen(true)}
+          onClick={changeOpen(true)}
         >
           Click to open the popup
         </Button>
-        <PopupBox open={open} onClose={() => setOpen(false)} />
+        <PopupBox open={open} onClose={changeOpen(false)} />
       </Box>
     </Container>
   );

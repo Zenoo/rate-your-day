@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import Typography from '@mui/material/Typography';
@@ -13,16 +13,16 @@ const FilterGender = () => {
   const [open, setOpen] = useState(true);
   const [genders, setGenders] = useState([]);
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
+  const handleClick = useCallback(() => {
+    setOpen((prev) => !prev);
+  }, []);
 
-  const handleCheckboxChange = (item) => {
+  const handleCheckboxChange = useCallback((item) => () => {
     const newGenders = genders;
     const index = newGenders.indexOf(item);
     index === -1 ? newGenders.push(item) : newGenders.splice(index, 1);
     setGenders(newGenders);
-  };
+  }, [genders]);
 
   return (
     <Box>
@@ -31,7 +31,7 @@ const FilterGender = () => {
         justifyContent={'space-between'}
         sx={{ cursor: 'pointer' }}
         marginBottom={1}
-        onClick={() => handleClick()}
+        onClick={handleClick}
       >
         <Typography fontWeight={700}>Gender</Typography>
         {open ? <ExpandLess /> : <ExpandMore />}
@@ -46,7 +46,7 @@ const FilterGender = () => {
                   <Checkbox
                     color="primary"
                     defaultChecked={genders.indexOf(item) >= 0}
-                    onChange={() => handleCheckboxChange(item)}
+                    onChange={handleCheckboxChange(item)}
                     sx={{
                       padding: 0,
                       marginRight: 1,

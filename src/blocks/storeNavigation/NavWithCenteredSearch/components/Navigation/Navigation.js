@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Link from '@mui/material/Link';
@@ -23,112 +23,19 @@ const mock = [
   },
 ];
 
-const Products = () => {
-  return (
-    <Grid container spacing={4}>
-      <Grid item xs={6}>
-        <Typography fontWeight={700} marginBottom={2} noWrap>
-          Categories
-        </Typography>
-        {[
-          'Men’s fashion',
-          'New arrivals',
-          'Clothing',
-          'Footwear',
-          'Watches',
-          'Jewellry',
-          'Backpacks',
-          'Luggage',
-        ].map((i) => (
-          <Link
-            key={i}
-            href={'#'}
-            underline={'hover'}
-            color={'text.primary'}
-            sx={{ display: 'block', marginTop: 1, whiteSpace: 'nowrap' }}
-          >
-            {i}
-          </Link>
-        ))}
-      </Grid>
-      <Grid item xs={6}>
-        <Typography fontWeight={700} marginBottom={2} noWrap>
-          Top brands
-        </Typography>
-        {[
-          'Nike',
-          'Tommy Hilfiger',
-          'Skechers',
-          'Converse',
-          'Puma',
-          'Adidas',
-          'Under Armour',
-          'Jack & Jones',
-        ].map((i) => (
-          <Link
-            key={i}
-            href={'#'}
-            underline={'hover'}
-            color={'text.primary'}
-            sx={{ display: 'block', marginTop: 1, whiteSpace: 'nowrap' }}
-          >
-            {i}
-          </Link>
-        ))}
-      </Grid>
-      {mock.map((item, i) => (
-        <Grid item xs={6} key={i}>
-          <Card
-            sx={{
-              width: 1,
-              height: 1,
-              display: 'flex',
-              flexDirection: 'column',
-              boxShadow: 'none',
-              bgcolor: 'transparent',
-              backgroundImage: 'none',
-            }}
-          >
-            <CardMedia
-              title={item.title}
-              image={item.media}
-              sx={{
-                position: 'relative',
-                height: 180,
-                overflow: 'hidden',
-                borderRadius: 2,
-              }}
-            />
-            <Box marginTop={2}>
-              <Typography
-                variant={'body2'}
-                color={'text.secondary'}
-                component={'h6'}
-              >
-                {item.title}
-              </Typography>
-              <Typography variant={'body2'} fontWeight={700} component={'h6'}>
-                {item.price}
-              </Typography>
-            </Box>
-          </Card>
-        </Grid>
-      ))}
-    </Grid>
-  );
-};
-
 const Navigation = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
-  const handleClick = (event) => {
+
+  const handleClick = useCallback((event) => {
     setAnchorEl(event.currentTarget);
     setOpen(true);
-  };
-  const handleClose = () => {
+  }, []);
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
     setOpen(false);
-  };
+  }, []);
+  
   return (
     <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2, md: 8 }}>
       <Link
@@ -141,7 +48,7 @@ const Navigation = () => {
           display: 'flex',
           alignItems: 'center',
         }}
-        onClick={(e) => handleClick(e)}
+        onClick={handleClick}
       >
         Products{' '}
         <svg
@@ -174,7 +81,96 @@ const Navigation = () => {
         anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
       >
         <Box>
-          <Products />
+          <Grid container spacing={4}>
+            <Grid item xs={6}>
+              <Typography fontWeight={700} marginBottom={2} noWrap>
+                Categories
+              </Typography>
+              {[
+                'Men’s fashion',
+                'New arrivals',
+                'Clothing',
+                'Footwear',
+                'Watches',
+                'Jewellry',
+                'Backpacks',
+                'Luggage',
+              ].map((i) => (
+                <Link
+                  key={i}
+                  href={'#'}
+                  underline={'hover'}
+                  color={'text.primary'}
+                  sx={{ display: 'block', marginTop: 1, whiteSpace: 'nowrap' }}
+                >
+                  {i}
+                </Link>
+              ))}
+            </Grid>
+            <Grid item xs={6}>
+              <Typography fontWeight={700} marginBottom={2} noWrap>
+                Top brands
+              </Typography>
+              {[
+                'Nike',
+                'Tommy Hilfiger',
+                'Skechers',
+                'Converse',
+                'Puma',
+                'Adidas',
+                'Under Armour',
+                'Jack & Jones',
+              ].map((i) => (
+                <Link
+                  key={i}
+                  href={'#'}
+                  underline={'hover'}
+                  color={'text.primary'}
+                  sx={{ display: 'block', marginTop: 1, whiteSpace: 'nowrap' }}
+                >
+                  {i}
+                </Link>
+              ))}
+            </Grid>
+            {mock.map((item, i) => (
+              <Grid item xs={6} key={i}>
+                <Card
+                  sx={{
+                    width: 1,
+                    height: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    boxShadow: 'none',
+                    bgcolor: 'transparent',
+                    backgroundImage: 'none',
+                  }}
+                >
+                  <CardMedia
+                    title={item.title}
+                    image={item.media}
+                    sx={{
+                      position: 'relative',
+                      height: 180,
+                      overflow: 'hidden',
+                      borderRadius: 2,
+                    }}
+                  />
+                  <Box marginTop={2}>
+                    <Typography
+                      variant={'body2'}
+                      color={'text.secondary'}
+                      component={'h6'}
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography variant={'body2'} fontWeight={700} component={'h6'}>
+                      {item.price}
+                    </Typography>
+                  </Box>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
         </Box>
       </Menu>
       <Link

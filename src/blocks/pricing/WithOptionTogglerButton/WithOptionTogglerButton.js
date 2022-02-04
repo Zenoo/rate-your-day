@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -61,9 +61,9 @@ const WithOptionTogglerButton = () => {
 
   const [pricingOption, setPricingOption] = useState('annual');
 
-  const handleClick = (event, newPricingOption) => {
+  const handleClick = useCallback((event, newPricingOption) => {
     setPricingOption(newPricingOption);
-  };
+  }, []);
 
   const renderToggler = () => (
     <Box display={'flex'} justifyContent={'center'} marginBottom={4}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -8,6 +8,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 const Topbar = ({ onSidebarOpen }) => {
   const theme = useTheme();
+
+  const handleSidebarOpen = useCallback(() => {
+    onSidebarOpen();
+  }, [onSidebarOpen]);
+
   return (
     <Box
       display={'flex'}
@@ -31,7 +36,7 @@ const Topbar = ({ onSidebarOpen }) => {
       </Box>
       <Box sx={{ display: { xs: 'flex', md: 'none' } }} alignItems={'center'}>
         <Button
-          onClick={() => onSidebarOpen()}
+          onClick={handleSidebarOpen}
           aria-label="Menu"
           variant={'outlined'}
           sx={{

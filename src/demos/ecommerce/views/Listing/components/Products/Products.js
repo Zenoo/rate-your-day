@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -126,6 +126,10 @@ const Products = () => {
   const theme = useTheme();
   const [openId, setOpenId] = useState(null);
 
+  const changeOpenId = useCallback((id) => () => {
+    setOpenId(id);
+  }, []);
+
   return (
     <Grid container spacing={{ xs: 4, md: 2 }}>
       {mock.map((item, i) => (
@@ -251,7 +255,7 @@ const Products = () => {
                   size={'large'}
                   fullWidth
                   sx={{ bgcolor: alpha(theme.palette.primary.light, 0.1) }}
-                  onClick={() => setOpenId(i)}
+                  onClick={changeOpenId(i)}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -300,7 +304,7 @@ const Products = () => {
             </Card>
             <ProductQuickViewDialog
               open={openId === i}
-              onClose={() => setOpenId(null)}
+              onClose={changeOpenId(null)}
               imageSrc={item.media}
               details={{
                 title: item.title,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -9,6 +9,10 @@ import Container from 'components/Container';
 const SizePicker = () => {
   const theme = useTheme();
   const [size, setSize] = useState('32');
+
+  const changeSize = useCallback((size) => () => {
+    setSize(size);
+  }, []);
 
   return (
     <Container>
@@ -23,7 +27,7 @@ const SizePicker = () => {
           {['30', '32', '34', '40'].map((item) => (
             <Box
               key={item}
-              onClick={() => setSize(item)}
+              onClick={changeSize(item)}
               sx={{
                 borderRadius: 1,
                 padding: 1,

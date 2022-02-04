@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -340,14 +340,16 @@ const Topbar = () => {
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [openMenuId, setOpenMenuId] = React.useState(null);
-  const handleClick = (event, id) => {
+
+  const handleClick = useCallback((id) => (event) => {
     setAnchorEl(event.currentTarget);
     setOpenMenuId(id);
-  };
-  const handleClose = () => {
+  }, []);
+  
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
     setOpenMenuId(null);
-  };
+  }, []);
 
   return (
     <Box
@@ -377,7 +379,7 @@ const Topbar = () => {
               <Tooltip title={item.groupTitle}>
                 <Box sx={{ display: 'flex', alignItems: 'center', marginX: 1 }}>
                   <Typography
-                    onClick={(e) => handleClick(e, item.id)}
+                    onClick={handleClick(item.id)}
                     color={'text.primary'}
                     sx={{ cursor: 'pointer' }}
                   >
@@ -459,7 +461,7 @@ const Topbar = () => {
           alignItems={'center'}
         >
           <Button
-            onClick={(e) => handleClick(e, 'mobile-menu')}
+            onClick={handleClick('mobile-menu')}
             aria-label="Menu"
             variant={'outlined'}
             sx={{

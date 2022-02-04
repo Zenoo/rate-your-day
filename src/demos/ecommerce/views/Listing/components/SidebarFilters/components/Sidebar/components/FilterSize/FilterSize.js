@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
@@ -13,9 +13,13 @@ const FilterSize = () => {
   const [open, setOpen] = useState(true);
   const [size, setSize] = useState('M');
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
+  const handleClick = useCallback(() => {
+    setOpen((prevOpen) => !prevOpen);
+  }, []);
+
+  const changeSize = useCallback((size) => {
+    setSize(size);
+  }, []);
 
   return (
     <Box>
@@ -24,7 +28,7 @@ const FilterSize = () => {
         justifyContent={'space-between'}
         marginBottom={1}
         sx={{ cursor: 'pointer' }}
-        onClick={() => handleClick()}
+        onClick={handleClick}
       >
         <Typography fontWeight={700}>
           Size:{' '}
@@ -39,7 +43,7 @@ const FilterSize = () => {
           {['S', 'M', 'L', 'XL'].map((item) => (
             <Box
               key={item}
-              onClick={() => setSize(item)}
+              onClick={changeSize(item)}
               sx={{
                 borderRadius: 1,
                 padding: 1,

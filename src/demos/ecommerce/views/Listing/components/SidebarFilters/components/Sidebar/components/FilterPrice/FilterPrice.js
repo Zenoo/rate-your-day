@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import Typography from '@mui/material/Typography';
@@ -13,13 +13,13 @@ const FilterPrice = () => {
   const [value, setValue] = useState([20, 400]);
   const [open, setOpen] = useState(true);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setOpen(!open);
-  };
+  }, [open]);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = useCallback((event, newValue) => {
     setValue(newValue);
-  };
+  }, []);
 
   return (
     <Box>
@@ -28,7 +28,7 @@ const FilterPrice = () => {
         justifyContent={'space-between'}
         marginBottom={1}
         sx={{ cursor: 'pointer' }}
-        onClick={() => handleClick()}
+        onClick={handleClick}
       >
         <Typography fontWeight={700}>
           Price:{' '}
@@ -41,7 +41,6 @@ const FilterPrice = () => {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <Box paddingX={3}>
           <Slider
-            getAriaLabel={() => 'Price range'}
             value={value}
             onChange={handleChange}
             valueLabelDisplay="off"

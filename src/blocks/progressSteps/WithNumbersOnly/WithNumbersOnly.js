@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -41,23 +41,23 @@ const WithNumbersOnly = () => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
 
-  const totalSteps = () => {
+  const totalSteps = useMemo(() => {
     return steps.length;
-  };
+  }, []);
 
-  const completedSteps = () => {
+  const completedSteps = useMemo(() => {
     return Object.keys(completed).length;
-  };
+  }, [completed]);
 
-  const isLastStep = () => {
+  const isLastStep = useMemo(() => {
     return activeStep === totalSteps() - 1;
-  };
+  }, [activeStep, totalSteps]);
 
-  const allStepsCompleted = () => {
+  const allStepsCompleted = useMemo(() => {
     return completedSteps() === totalSteps();
-  };
+  }, [completedSteps, totalSteps]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     const newActiveStep =
       isLastStep() && !allStepsCompleted()
         ? // It's the last step, but not all steps have been completed,
@@ -66,27 +66,27 @@ const WithNumbersOnly = () => {
         : activeStep + 1;
 
     setActiveStep(newActiveStep);
-  };
+  }, [activeStep, completed, isLastStep, allStepsCompleted]);
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+  }, []);
 
-  const handleStep = (step) => () => {
+  const handleStep = useCallback((step) => () => {
     setActiveStep(step);
-  };
+  }, []);
 
-  const handleComplete = () => {
+  const handleComplete = useCallback(() => {
     const newCompleted = completed;
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
     handleNext();
-  };
+  }, [completed, activeStep, handleNext]);
 
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     setActiveStep(0);
     setCompleted({});
-  };
+  }, []);
 
   return (
     <Container>

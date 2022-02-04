@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -14,6 +14,10 @@ import Select from '@mui/material/Select';
 
 const Topbar = ({ onSidebarOpen }) => {
   const theme = useTheme();
+
+  const handleSidebarOpen = useCallback(() => {
+    onSidebarOpen();
+  }, [onSidebarOpen]);
 
   return (
     <Box
@@ -187,7 +191,7 @@ const Topbar = ({ onSidebarOpen }) => {
         </Link>
       </Box>
       <Button
-        onClick={() => onSidebarOpen()}
+        onClick={handleSidebarOpen}
         aria-label="Menu"
         variant={'outlined'}
         sx={{

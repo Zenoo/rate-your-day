@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -23,9 +23,9 @@ const Main = ({ children }) => {
 
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
 
-  const handleMobileMenuClick = () => {
-    setOpenMobileMenu(!openMobileMenu);
-  };
+  const handleMobileMenuClick = useCallback(() => {
+    setOpenMobileMenu((prev) => !prev);
+  }, []);
 
   const open = isMd ? false : openMobileMenu;
 

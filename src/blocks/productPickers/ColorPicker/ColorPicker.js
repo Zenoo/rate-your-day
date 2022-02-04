@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -9,6 +9,10 @@ import Container from 'components/Container';
 const ColorPicker = () => {
   const theme = useTheme();
   const [color, setColor] = useState('blue');
+
+  const changeColor = useCallback((color) => () => {
+    setColor(color);
+  }, []);
 
   return (
     <Container>
@@ -23,7 +27,7 @@ const ColorPicker = () => {
           {['gray', 'white', 'red', 'blue', 'indigo'].map((item) => (
             <Box
               key={item}
-              onClick={() => setColor(item)}
+              onClick={changeColor(item)}
               sx={{
                 borderRadius: '100%',
                 padding: 0.5,

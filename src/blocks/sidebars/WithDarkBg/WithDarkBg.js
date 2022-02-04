@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { alpha, useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
@@ -8,20 +8,6 @@ import AppBar from '@mui/material/AppBar';
 import Container from 'components/Container';
 import { Topbar, Sidebar, Footer } from './components';
 
-const ChildMock = () => {
-  return (
-    <Box p={4}>
-      <Box
-        width={1}
-        height={1}
-        minHeight={840}
-        borderRadius={2}
-        bgcolor={'alternate.dark'}
-      />
-    </Box>
-  );
-};
-
 const WithDarkBg = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
@@ -30,13 +16,13 @@ const WithDarkBg = () => {
 
   const [openSidebar, setOpenSidebar] = useState(false);
 
-  const handleSidebarOpen = () => {
+  const handleSidebarOpen = useCallback(() => {
     setOpenSidebar(true);
-  };
+  }, []);
 
-  const handleSidebarClose = () => {
+  const handleSidebarClose = useCallback(() => {
     setOpenSidebar(false);
-  };
+  }, []);
 
   const open = isMd ? false : openSidebar;
 
@@ -69,7 +55,15 @@ const WithDarkBg = () => {
         >
           <Box display="flex" flex="1 1 auto" overflow="hidden">
             <Box flex="1 1 auto" height="100%" overflow="auto">
-              <ChildMock />
+              <Box p={4}>
+                <Box
+                  width={1}
+                  height={1}
+                  minHeight={840}
+                  borderRadius={2}
+                  bgcolor={'alternate.dark'}
+                />
+              </Box>
               <Divider />
               <Container paddingY={4}>
                 <Footer />

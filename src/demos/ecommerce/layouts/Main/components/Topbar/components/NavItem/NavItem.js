@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -14,15 +14,15 @@ const NavItem = ({ title, id, items }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [openedPopoverId, setOpenedPopoverId] = useState(null);
 
-  const handleClick = (event, popoverId) => {
+  const handleClick = useCallback((event) => {
     setAnchorEl(event.target);
-    setOpenedPopoverId(popoverId);
-  };
+    setOpenedPopoverId(id);
+  }, [id]);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
     setOpenedPopoverId(null);
-  };
+  }, []);
 
   return (
     <Box>
@@ -31,7 +31,7 @@ const NavItem = ({ title, id, items }) => {
         alignItems={'center'}
         aria-describedby={id}
         sx={{ cursor: 'pointer' }}
-        onClick={(e) => handleClick(e, id)}
+        onClick={handleClick}
       >
         <Typography
           color={'text.primary'}

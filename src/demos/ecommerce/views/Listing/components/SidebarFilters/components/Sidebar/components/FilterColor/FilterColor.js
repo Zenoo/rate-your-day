@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
@@ -13,9 +13,13 @@ const FilterColor = () => {
   const [open, setOpen] = useState(true);
   const [color, setColor] = useState('blue');
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
+  const handleClick = useCallback(() => {
+    setOpen((prevOpen) => !prevOpen);
+  }, []);
+
+  const changeColor = useCallback((color) => () => {
+    setColor(color);
+  }, []);
 
   return (
     <Box>
@@ -24,7 +28,7 @@ const FilterColor = () => {
         justifyContent={'space-between'}
         marginBottom={1}
         sx={{ cursor: 'pointer' }}
-        onClick={() => handleClick()}
+        onClick={handleClick}
       >
         <Typography fontWeight={700}>
           Color:{' '}
@@ -39,7 +43,7 @@ const FilterColor = () => {
           {['black', 'gray', 'white', 'blue', 'indigo'].map((item) => (
             <Box
               key={item}
-              onClick={() => setColor(item)}
+              onClick={changeColor(item)}
               sx={{
                 borderRadius: '100%',
                 padding: 0.5,
