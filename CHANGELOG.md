@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/Zenoo/rate-your-day/compare/v0.1.3...v0.1.4) (2022-02-04)
+
+
+### Bug fix
+
+* Dark mode by default ([e6966a4](https://github.com/Zenoo/rate-your-day/commit/e6966a4a33d5d5e0aeadf5961209911b57acaf26))
+
 ### [0.1.3](https://github.com/Zenoo/rate-your-day/compare/v0.1.2...v0.1.3) (2022-02-04)
 
 
