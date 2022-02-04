@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/rate-your-day/static/css/main.431ebdab.css",
-    "main.js": "/rate-your-day/static/js/main.444a4582.js",
+    "main.js": "/rate-your-day/static/js/main.eeaa13e4.js",
     "static/js/288.77aff074.chunk.js": "/rate-your-day/static/js/288.77aff074.chunk.js",
     "static/js/27.f7d3afbd.chunk.js": "/rate-your-day/static/js/27.f7d3afbd.chunk.js",
     "static/media/slick.svg": "/rate-your-day/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -12,6 +12,6 @@
   },
   "entrypoints": [
     "static/css/main.431ebdab.css",
-    "static/js/main.444a4582.js"
+    "static/js/main.eeaa13e4.js"
   ]
 }
