@@ -14,7 +14,7 @@
     "clear-all": "rimraf ./build ./node_modules",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "release": "standard-version"
+    "release": "standard-version && npm run deploy"
   },
   "eslintConfig": {
     "extends": [
